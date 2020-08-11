@@ -1,5 +1,6 @@
-<template>
-  <div id = "app"> 
+<!-- Profile Page -->
+<!-- <template>
+  <div id = "app">
     <Content
       Name= 'Arnav Shirodkar'
       email= 'arnavshirodkar@gmail.com'
@@ -13,8 +14,8 @@
 </template>
 
 <script>
-  import Content from './components/Content.vue'
-  import Navbar from './components/Navbar.vue'
+  import Content from './components/Content.vue';
+  import Navbar from './components/Navbar.vue';
 
   export default{
     name: 'App',
@@ -23,37 +24,27 @@
       Navbar
     }
   }
-  
 </script>
+ -->
 
-<!--  
+<!-- Scanning Page -->
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id = "app">
+    <vuecam/>
+    <Navbar/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+  import vuecam from './components/my-vue-camera.vue'
+  import Navbar from './components/Navbar.vue';
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  export default{
+    name: 'App',
+    components: {
+      vuecam,
+      Navbar
+    }
   }
-}
+
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
-
- -->

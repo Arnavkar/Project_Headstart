@@ -1,56 +1,59 @@
 <template> 
-	<div id = 'phone'>
-		<div class = 'header'>
-			<img src="https://placekitten.com/g/74/76" id="kitty">
-			<p class = "field-data" id = 'profilename'>
-				<span> {{Name}} </span>
-				<span class="material-icons" id = "mainedit"> edit </span>
-			</p>
-		</div>
-		<h2 id = 'tag'> Personal Information </h2>
-		<div>
-			<div class = 'deets' id = 'email'> 
-				<h3>Email Address</h3>
-				<hr>
-				<p class = "field-data">
-					<span>{{email}}</span>
-					<span class="material-icons"> edit </span>
-				</p>
-			</div>
-			<div class = 'deets' id = 'mobile'>
-				<h3> Phone Number </h3>
-				<hr>
-				<p class = "field-data">
-					<span>{{mobile}}</span>
-					<span class="material-icons"> edit </span>
-				</p>
-			</div>
-			<div class = 'deets' id = 'dob'> 
-				<h3> Date of Birth (DD/MM/YY) </h3>
-				<hr>
-				<p class = "field-data">
-					<span>{{dob}}</span>
-					<span class="material-icons"> edit </span>
-				</p>
-			</div>
-			<div class = 'deets' id = 'gen'>
-				<h3> Gender </h3>
-				<hr>
-				<p class = "field-data">
-					<span>{{gen}}</span>
-					<span class="material-icons"> edit </span>
-				</p>
-			</div>
-			<div class = 'deets' id = 'bank'>
-				<h3> Bank Details </h3>
-				<hr>
-				<p class = "field-data">
-					<span>{{bank}}</span>
-					<span class="material-icons"> edit </span>
-				</p>
-			</div>
-    </div>
+
+  <div id = phone>
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <!-- 	<div id = 'phone'> -->
+     <div class = 'header'>
+      <img src="https://placekitten.com/g/74/76" id="kitty">
+      <p class = "field-data" id = 'profilename'>
+       <span> {{Name}} </span>
+       <span class="material-icons" id = "mainedit"> edit </span>
+     </p>
+   </div>
+   <h2 id = 'tag'> Personal Information </h2>
+   <div>
+    <div class = 'deets' id = 'email'> 
+     <h3>Email Address</h3>
+     <hr>
+     <p class = "field-data">
+      <span>{{email}}</span>
+      <span class="material-icons"> edit </span>
+    </p>
   </div>
+  <div class = 'deets' id = 'mobile'>
+   <h3> Phone Number </h3>
+   <hr>
+   <p class = "field-data">
+    <span>{{mobile}}</span>
+    <span class="material-icons"> edit </span>
+  </p>
+</div>
+<div class = 'deets' id = 'dob'> 
+ <h3> Date of Birth (DD/MM/YY) </h3>
+ <hr>
+ <p class = "field-data">
+  <span>{{dob}}</span>
+  <span class="material-icons"> edit </span>
+</p>
+</div>
+<div class = 'deets' id = 'gen'>
+ <h3> Gender </h3>
+ <hr>
+ <p class = "field-data">
+  <span>{{gen}}</span>
+  <span class="material-icons"> edit </span>
+</p>
+</div>
+<div class = 'deets' id = 'bank'>
+ <h3> Bank Details </h3>
+ <hr>
+ <p class = "field-data">
+  <span>{{bank}}</span>
+  <span class="material-icons"> edit </span>
+</p>
+</div>
+</div>
+</div><!--   </div> -->
 </template>
 
 <script>
@@ -65,6 +68,8 @@
      bank: String, 
    }
  }
+
+ 
 </script>
 
 <style>
@@ -90,17 +95,20 @@
 }
 
 #phone{
-  width: 385px;
-  height: 822px;
+  margin: 0px auto;
+  width: 377px;
+  height: 814px;
   border-style: solid;
   border-color: black;
-  border-width: 10px;
+  border-width: 1px;
   padding: 1em;
   box-sizing:border-box;
   border-radius: 30px;
   font-family:'Montserrat';
   background-color: white;
   overflow: hidden;
+  position: relative;
+
 }
 
 .header{
@@ -110,11 +118,11 @@
 #profilename{
   margin-top:44px;
   font-size: 26px; 
-  margin-left: 5px;
+  margin-left: 20px;
 }
 
 .header span:first-child{
-  width:233px;
+  width:220px;
 }
 
 #kitty{
@@ -129,7 +137,7 @@ h2 {
 }
 
 .deets{
-  width:350px;
+  width:359px;
   height:10em;
   box-sizing: content-box;
   border-radius: 30px 30px 0px 0px;
