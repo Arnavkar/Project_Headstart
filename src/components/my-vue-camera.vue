@@ -122,21 +122,7 @@ export default {
 </script>
 
 <style>
-#container{
-	font-family:'Montserrat';
-	margin: 0px auto;
-	width: 377px;
-	height: 814px;
-	border-style: solid;
-	border-color: black;
-	border-width: 1px;
-	
-	box-sizing:border-box;
-	border-radius: 30px;
-	overflow: hidden;
 
-	background-color:"white"
-}
 
 video{
 	-webkit-transform: scaleX(-1);

@@ -48,3 +48,29 @@
   }
 
 </script>
+<style scoped>
+  * {
+    box-sizing:border-box;
+  }
+  #app {
+    background-color: #fff;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    font-family:'Montserrat';
+    margin: 0px auto;
+    width: 377px;
+    height: 814px;
+    border: solid 1px black;
+    border-radius: 30px;
+    overflow: hidden;
+  }
+</style>
+
+
+
+
+
+
+
+

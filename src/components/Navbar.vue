@@ -10,18 +10,11 @@
 
 #navbar {
 
-  width:373px;
-  height: 44px;
-  top:-61px;
-  left:180px;
   display: flex;
   position:relative;
-  border-radius: 0px 0px 30px 30px;
-  padding: 15px 0px 0px 0px;
+  padding: 15px 0px 15px 0px;
   justify-content: center;
   background-color: rgb(0,117,40);
-  border-style:solid;
-  border-width:1px;
 }
 
 #icons {
