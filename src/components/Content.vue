@@ -53,7 +53,7 @@
 </p>
 </div>
 </div>
-</div><!--   </div> -->
+</div>
 </template>
 
 <script>
@@ -73,21 +73,6 @@
 </script>
 
 <style>
-@font-face {
-  font-family: 'Material Icons';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Material Icons'), local('MaterialIcons-Regular'), url(https://fonts.gstatic.com/s/materialicons/v7/2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2) format('woff2');
-}
-
-.material-icons {
-  font-family: 'Material Icons';
-  font-weight: 20px;
-  font-style: normal;
-  padding-right:1em;
-  font-size: 18px;
-  color: rgba(0,0,0,0.5)
-}
 
 #mainedit{
   padding-top: 4px;
@@ -98,12 +83,9 @@
   margin: 0px auto;
   width: 377px;
   height: 814px;
-  border-style: solid;
-  border-color: black;
-  border-width: 1px;
   padding: 1em;
   box-sizing:border-box;
-  border-radius: 30px;
+  border-radius: 30px 30px 0px 0px;
   font-family:'Montserrat';
   background-color: white;
   overflow: hidden;

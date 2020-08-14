@@ -1,3 +1,4 @@
+<!-- Using Vue Quagga Package -->
 <!-- <template>
   <div>
     <v-quagga :onDetected="logIt" :readerSize="readerSize" :readerTypes="['ean_reader']"></v-quagga>
@@ -35,11 +36,12 @@ export default {
 -->
 
 <template>
-	<div id = "container">
+	<div class = "container">
 		<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 		<h1> Start Scanning! </h1>
-		<p class = "text"> Scan your way to a sustainable lifestyle </p>
-		<video autoplay = "true" id = "vid"></video>
+		<p id = "text"> Scan your way to a sustainable lifestyle </p>
+		<video autoplay = "true" class = "container"  id = "vid"></video>
+		
 		<div id = "info">
 			<span class = "text"> Item info here</span>
 		</div>
@@ -47,51 +49,42 @@ export default {
 </template>
 
 <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+
 <script>
 	export default{
-		data()
-		{
-			return {};
-		},
-		mounted()
-		{
-			async function getDevices(){
-				const devices = await navigator.mediaDevices.enumerateDevices();
-			}
+		name:'camera',
+		methods:{
+			init(){
 
-			var video = document.querySelector("#vid");
-
-			let constraints =
-			{
-				audio: false, 
-				video: {
-					width: { exact: 355},
-					height: { ideal: 450},
-						facingMode: "user" //{ exact: "environment"}
-
+				let constraints = {
+					audio: false, 
+					video: {
+						width: { exact: 360}, // need to change
+						height: { exact: 430},
+							facingMode: "user" //{ exact: "environment"}
+						}
+					};
+					if('mediaDevices' in navigator && 'getUserMedia' in navigator.mediaDevices){
+						navigator.mediaDevices.getUserMedia(constraints).then (stream => {
+							const videoPlayer = document.querySelector("video");
+							videoPlayer.srcObject = stream;
+							videoPlayer.play();
+						});
+					} else {
+						alert("Can't find Camera");
 					}
-				};
+				},
 
-				navigator.mediaDevices.getUserMedia(constraints)
-				.then(function (stream)
-				{
-					try {
-						video.srcObject = stream;
-					} catch (error) {
-						video.srcObject = URL.createObjectURL(stream);
-					}
-				//info.innerHTML+= "<pre>DONE</pre>";
-				console.log("DONE");
-			})
-				.catch(function(errr)
-				{
-					console.log ("Smth went Wong");
-				});	
-			}
+				capture(){
+					console.log("picture taken");
+				}	
+			},
 
-
-
+			beforeMount(){
+				this.init()
+			}	
 		}
+
 
 	// check if getUserMedia is supported by our browser
 	//All we are telling getUserMedia is to specify a constraints object whose video property is set to true. This means that default settings will be used in capturing 
@@ -100,34 +93,17 @@ export default {
 
 	//Beyond constraints, there is another very important detail we need to know about the getUserMedia method. What it returns is a promise that resolves to an object of type MediaStream. When the promise successfully resolves, you can access the underlying media stream and perform any additional actions.
 
-
-	// Quagga.init({
-	// 	inputStream:{
-	// 		name : "Live",
-	// 		type : "LiveStream",
-	// 		target: document.querySelector("#vid"),
-	// 	},
-	// 	decoder:{
-	// 		readers:["code_128_reader"]
-	// 	}
-	// }, function(err){
-	// 	if(err){
-	// 		console.log(err);
-	// 		return
-	// 	}
-	// 	console.log("Init finished, ready to start")
-	// 	Quagga.start();
-	// });
-
 </script>
 
 <style>
 
+.container{
+	text-align:center;
+	box-sizing: border-box;
+}
 
 video{
 	-webkit-transform: scaleX(-1);
-	margin-left:10px;
-	margin-top:0em;
 	border-radius:30px;
 	border-width:1px;
 	border-style:solid;
@@ -144,10 +120,10 @@ h1{
 }
 
 #info{
+	display:flex;
 	position:relative;
-	top:-4px;
-	width:1;
-	height:202px;
+	margin-top:-4px;
+	height:300px;
 	background-color: rgb(170,235,170);
 	border-radius: 30px;
 }
