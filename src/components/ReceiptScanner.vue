@@ -1,10 +1,14 @@
 <template>
 	<div class = "container">
+		<h1>ROUTER ADDED IN</h1>
 		<video autoplay = "true"></video>
 		<canvas></canvas>
 		<button class = "snap" v-on:click = "this.capture">
 			<span class="material-icons" id = "icon"> camera </span>
 		</button>
+
+		<!-- <router-view/> -->
+		<!-- <router-link to="/Profile"></router-link> -->
 
 	</div>
 </template>
