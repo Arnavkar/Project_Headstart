@@ -1,6 +1,6 @@
 <template>
 	<div class = "container">
-		<h1>ROUTER ADDED IN</h1>
+		<h1>START WORK ON NAVIGATION ADDED IN</h1>
 		<video autoplay = "true"></video>
 		<canvas></canvas>
 		<button class = "snap" v-on:click = "this.capture">
