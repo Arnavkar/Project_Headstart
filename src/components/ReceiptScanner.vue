@@ -1,21 +1,17 @@
 <template>
 	<div class = "container">
-		<h1>START WORK ON NAVIGATION ADDED IN</h1>
 		<video autoplay = "true"></video>
 		<canvas></canvas>
-		<button class = "snap" v-on:click = "this.capture">
-			<span class="material-icons" id = "icon"> camera </span>
-		</button>
-
-		<!-- <router-view/> -->
-		<!-- <router-link to="/Profile"></router-link> -->
-
+		<NavbarCamera/>
+		<button class = "snap" v-on:click = "this.capture"></button>
 	</div>
 </template>
 
 <script>
+	import NavbarCamera from '../components/Navbar_Camera.vue';
 	export default{
 		name:'camera',
+		components: {NavbarCamera},
 		methods:{
 			init(){
 				//NOTE: constraint height will eventually need to be altered to fit the entire screen
@@ -63,6 +59,7 @@
 		height:812px;
 		text-align: center;
 		background-color: #171717;
+		justify-content:center;
 		
 		video{
 			-webkit-transform: scaleX(-1);
@@ -82,13 +79,13 @@
 		.snap{
 			position:absolute;
 			top:735px;
-			left:163.5px;
+			left:160.5px;
 			align:center;
 			width: 60px;
 			height: 60px;
 			border-radius: 50%;
 
-			background-color: rgba(250,250,250,0.8);
+			background-color: rgba(250,250,250,1);
 			border: 1px solid rgba(100,100,100,0.5);
 			outline: none;
 
@@ -99,7 +96,7 @@
 			}
 		}
 
-		#icon{
+		#icons{
 			position:absolute;
 			font-size:60px;
 			top:-1px;

@@ -1,27 +1,34 @@
 <template>
-	<div class = "nav" id = 'navbar'>
-		<span class="material-icons" id = "icons"> home </span>
-		<span class="material-icons" id = "icons"> camera</span>
-		<span class="material-icons" id = "icons"> account_circle </span>
-	</div>
+  <div class = "body">
+    <div class = "nav" id = 'navbar'>
+      <span class="material-icons" id = "icons"> home </span>
+
+      <router-link to="/Scan">
+        <span class="material-icons" id = "icons"> camera</span>
+      </router-link> 
+      
+      <span class="material-icons" id = "icons"> account_circle </span>
+    </div>
+  </div>
 </template>
 
-<style>
+<style scoped>
+.body{
+  align-items: center;
 
-#navbar {
+}
+
+.nav {
   display: flex;
-  position: absolute;
-  width:377px;
-  top:750px;
   padding: 15px 0px 15px 0px;
   justify-content: center;
-  background-color: rgb(0,117,40);
+  background-color: rgba(0,117,40,255);
 }
 
 #icons {
 	padding: 0px 20px 0px 20px;
   font-size: 30px;
-  color: rgba(0,0,0)
+  color: rgba(0,0,0);
 }
 
 </style>

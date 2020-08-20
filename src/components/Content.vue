@@ -1,59 +1,57 @@
 <template> 
-
   <div id = phone>
-  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-    <!-- 	<div id = 'phone'> -->
-     <div class = 'header'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <div class = 'header'>
       <img src="https://placekitten.com/g/74/76" id="kitty">
       <p class = "field-data" id = 'profilename'>
        <span> {{Name}} </span>
        <span class="material-icons" id = "mainedit"> edit </span>
-     </p>
-   </div>
-   <h2 id = 'tag'> Personal Information </h2>
-   <div>
-    <div class = 'deets' id = 'email'> 
-     <h3>Email Address</h3>
-     <hr>
-     <p class = "field-data">
-      <span>{{email}}</span>
-      <span class="material-icons"> edit </span>
-    </p>
+     </p>  
+    </div>
+    <h2 id = 'tag'> Personal Information </h2>
+    <div>
+      <div class = 'deets' id = 'email'> 
+        <h3>Email Address</h3>
+        <hr>
+        <p class = "field-data">
+          <span>{{email}}</span>
+          <span class="material-icons"> edit </span>
+        </p>
+      </div>
+      <div class = 'deets' id = 'mobile'>
+        <h3> Phone Number </h3>
+        <hr>
+        <p class = "field-data">
+          <span>{{mobile}}</span>
+          <span class="material-icons"> edit </span>
+        </p>
+      </div>
+      <div class = 'deets' id = 'dob'> 
+        <h3> Date of Birth (DD/MM/YY) </h3>
+        <hr>
+        <p class = "field-data">
+          <span>{{dob}}</span>
+          <span class="material-icons"> edit </span>
+        </p>
+      </div>
+      <div class = 'deets' id = 'gen'>
+        <h3> Gender </h3>
+        <hr>
+        <p class = "field-data">
+          <span>{{gen}}</span>
+          <span class="material-icons"> edit </span>
+        </p>
+      </div>
+      <div class = 'deets' id = 'bank'>
+        <h3> Bank Details </h3>
+        <hr>
+        <p class = "field-data">
+          <span>{{bank}}</span>
+          <span class="material-icons"> edit </span>
+        </p>
+      </div>
+    </div>
   </div>
-  <div class = 'deets' id = 'mobile'>
-   <h3> Phone Number </h3>
-   <hr>
-   <p class = "field-data">
-    <span>{{mobile}}</span>
-    <span class="material-icons"> edit </span>
-  </p>
-</div>
-<div class = 'deets' id = 'dob'> 
- <h3> Date of Birth (DD/MM/YY) </h3>
- <hr>
- <p class = "field-data">
-  <span>{{dob}}</span>
-  <span class="material-icons"> edit </span>
-</p>
-</div>
-<div class = 'deets' id = 'gen'>
- <h3> Gender </h3>
- <hr>
- <p class = "field-data">
-  <span>{{gen}}</span>
-  <span class="material-icons"> edit </span>
-</p>
-</div>
-<div class = 'deets' id = 'bank'>
- <h3> Bank Details </h3>
- <hr>
- <p class = "field-data">
-  <span>{{bank}}</span>
-  <span class="material-icons"> edit </span>
-</p>
-</div>
-</div>
-</div>
 </template>
 
 <script>
@@ -68,8 +66,6 @@
      bank: String, 
    }
  }
-
- 
 </script>
 
 <style>
