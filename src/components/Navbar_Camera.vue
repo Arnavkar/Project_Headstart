@@ -1,9 +1,9 @@
 <template>
   <div class = "nav" id = 'navbar'>
-    <span class="material-icons" id = "icons"> home nnn </span> 
+    <span class="material-icons icons"> home nnn </span> 
     <!-- why does the adding the nnns work -->
     <router-link to="/">
-      <span class="material-icons" id = "icons"> account_circle </span>
+      <span class="material-icons icons"> account_circle </span>
     </router-link> 
   </div>
     <!-- <router-view/> -->
@@ -23,7 +23,7 @@
   background-color: rgba(255,255,255,0);
 }
 
-#icons {
+.icons {
 	padding: 0px 20px 0px 20px;
   font-size: 40px;
   color: rgb(255,255,255);

@@ -1,13 +1,15 @@
 <template>
-  <div class = "body">
-    <div class = "nav" id = 'navbar'>
-      <span class="material-icons" id = "icons"> home </span>
+  <div class="body">
+    <div class="nav" id='navbar'>
+      <router-link to="/">
+        <span class="material-icons icons"> home </span>
+      </router-link>
 
       <router-link to="/Scan">
-        <span class="material-icons" id = "icons"> camera</span>
+        <span class="material-icons icons"> camera</span>
       </router-link> 
       
-      <span class="material-icons" id = "icons"> account_circle </span>
+      <span class="material-icons icons"> account_circle </span>
     </div>
   </div>
 </template>
@@ -25,7 +27,7 @@
   background-color: rgba(0,117,40,255);
 }
 
-#icons {
+.icons {
 	padding: 0px 20px 0px 20px;
   font-size: 30px;
   color: rgba(0,0,0);
