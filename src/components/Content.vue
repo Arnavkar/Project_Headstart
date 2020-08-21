@@ -1,12 +1,11 @@
 <template> 
-  <div id = phone>
-    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+  <div id = 'phone'>
     <div class = 'header'>
       <img src="https://placekitten.com/g/74/76" id="kitty">
       <p class = "field-data" id = 'profilename'>
-       <span> {{Name}} </span>
-       <span class="material-icons" id = "mainedit"> edit </span>
-     </p>  
+        <span> {{username}} </span>
+        <span class="material-icons" id = "mainedit"> edit </span>
+      </p>  
     </div>
     <h2 id = 'tag'> Personal Information </h2>
     <div>
@@ -57,15 +56,35 @@
 <script>
   export default {
     name: 'Content',
-    props: {
-     Name: String,
-     email: String, 
-     mobile: String, 
-     dob: String, 
-     gen: String, 
-     bank: String, 
-   }
- }
+   //  props: {
+   //   username: String,
+   //   email: String, 
+   //   mobile: String, 
+   //   dob: String, 
+   //   gen: String, 
+   //   bank: String, 
+   // },
+  computed: {
+    username() {
+      return this.$store.getters.getName
+    },
+    email() {
+      return this.$store.getters.getEmail
+    },
+    mobile() {
+      return this.$store.getters.getMobile
+    },
+    dob() {
+      return this.$store.getters.getDob
+    },
+    gen() {
+      return this.$store.getters.getGen
+    },
+    bank() {
+      return this.$store.getters.getBank
+    },
+  },
+}
 </script>
 
 <style>

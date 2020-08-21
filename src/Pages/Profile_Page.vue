@@ -1,12 +1,13 @@
 <template>
 	<div id = "app"> 
-		<Content
+		<!-- <Content
 		Name= 'Arnav Shirodkar'
 		email= 'arnavshirodkar@gmail.com'
 		mobile= '93893864'
 		dob= '04/11/1998'
 		gen= 'Male'
-		bank= 'POSB 257 - XXX - XXXX' />
+		bank= 'POSB 257 - XXX - XXXX' /> -->
+		<Content />
 		<NavbarProfile/>
 	</div>
 </template>

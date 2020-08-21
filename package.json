@@ -12,7 +12,8 @@
     "scandit-sdk": "^5.1.4",
     "vue": "^2.6.11",
     "vue-quaggajs": "^1.0.12",
-    "vue-router": "^3.4.3"
+    "vue-router": "^3.4.3",
+    "vuex": "^3.5.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.4.0",

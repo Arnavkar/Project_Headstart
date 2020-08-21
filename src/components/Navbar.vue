@@ -1,13 +1,16 @@
 <template>
   <div class = "body">
     <div class = "nav" id = 'navbar'>
-      <span class="material-icons" id = "icons"> home </span>
-
+      <router-link to="/">
+        <span class="material-icons" id = "icons"> home </span>
+      </router-link>
       <router-link to="/Scan">
         <span class="material-icons" id = "icons"> camera</span>
       </router-link> 
       
-      <span class="material-icons" id = "icons"> account_circle </span>
+      <router-link to="/Data">
+        <span class="material-icons" id = "icons"> account_circle </span>
+      </router-link> 
     </div>
   </div>
 </template>
