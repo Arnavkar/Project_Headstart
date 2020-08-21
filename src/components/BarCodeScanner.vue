@@ -1,6 +1,6 @@
 <template>
 	<div class = "container">
-		<title>Scandit Example Page</title>
+		<!-- <title>Scandit Example Page</title> -->
 		<div id="scandit-barcode-picker" class="scanner"></div>
 		<div id="scandit-barcode-result" class="result-text">
 			{{barCode}}
@@ -75,25 +75,25 @@ ScanditSDK.configure("AX7OUjpwJQErLLulGAinuoQtpKRwQ7COcxp801gTgb7pCchbeAUP0od/nW
 
 		/* FOR LOUIS - How do i reactively assign a value to this? this particular line of code below gives me errors saying that "cannot set property barCode of undefined" 
 		this.barCode = code;*/
-
+		
 		return type + ":" + code;
-		}, "");
+	}, "");
 		})
-				.on("scanError", function(error) {
-					console.error(error);
-				});
-			});
-		}).catch(function(error) {
+		.on("scanError", function(error) {
 			console.error(error);
-			alert(error);
 		});
-	},
+	});
+}).catch(function(error) {
+	console.error(error);
+	alert(error);
+});
+},
 
-	mounted(){
+mounted(){
 
-		/* FOR LOUIS -> I was also thinking of shifting the method barcodePicker.on{...} into mounted() here to separate the initialization and method that runs the scan. However the name "barcodePicker" is passed from a series of then statements but not an actual variable so how do I access it from here?*/
+	/* FOR LOUIS -> I was also thinking of shifting the method barcodePicker.on{...} into mounted() here to separate the initialization and method that runs the scan. However the name "barcodePicker" is passed from a series of then statements but not an actual variable so how do I access it from here?*/
 
-	}
+}
 }
 
 /* eslint-disable no-mixed-spaces-and-tabs*/
