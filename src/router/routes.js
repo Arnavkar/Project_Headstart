@@ -5,6 +5,8 @@ import Home from '../Pages/Home_Page.vue'
 import Base from'../Layout/Layout.vue'
 import Settings from '../Pages/Settings_Page.vue'
 
+import Data from '../Pages/Data_Page.vue'
+
 
 const routes = [{
 	path: '/',
@@ -19,8 +21,8 @@ const routes = [{
 	  	component: Scanner
 	    },
 	    {
-	  	path: 'history',
-	  	component: History 
+	  	path: 'data',
+	  	component: Data 
 	    },
 	     {
 	  	path: 'settings',

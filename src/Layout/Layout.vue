@@ -42,8 +42,8 @@ export default {
         },
         {
           icon: "list",
-          label: "History",
-          to: "/history",
+          label: "Data",
+          to: "/data",
           size:"18px"
         }
       ]
