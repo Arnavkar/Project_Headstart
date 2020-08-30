@@ -8,8 +8,8 @@ Vue.config.productionTip = false
 Vue.config.devtools = true
 
 const apiConfig = {
-  apiKey: 'AIzaSyAWg2IvuRzXgMU7nNCWZmRZ7DlraBMsrhc',
-  clientId: '128246237578-qibaiukb82ubm9b3bkbb15ift36j0rvt.apps.googleusercontent.com',
+  apiKey: 'YOUR API KEY',
+  clientId: 'YOUR CLIENT ID',
   discoveryDocs: ['https://sheets.googleapis.com/$discovery/rest?version=v4'],
   // see all available scopes here: https://developers.google.com/identity/protocols/googlescopes'
   scope: 'https://www.googleapis.com/auth/spreadsheets',
