@@ -36,7 +36,7 @@ export default {
           to:"/",
         },
         {
-          icon:"camera",
+          icon:"party_mode",
           label:"camera",
           to:"/scanner",
         },
@@ -45,7 +45,14 @@ export default {
           label: "Data",
           to: "/data",
           size:"18px"
+        },
+        {
+          icon: "favorite",
+          label: "history",
+          to: "/history",
+          size:"18px"
         }
+
       ]
     } 
   },

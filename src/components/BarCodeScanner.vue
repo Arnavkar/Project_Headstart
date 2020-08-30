@@ -18,6 +18,7 @@
 
 	var code;
 	var type;
+	
 	var vm = new Vue({
 		methods: {
 			getBarcode() {
@@ -62,8 +63,8 @@
 						], 
 						codeDuplicateFilter: 1000 });
 					barcodePicker.applyScanSettings(scanSettings);
-					barcodePicker.setGuiStyle("viewfinder");
-					barcodePicker.setViewfinderArea(200,300);
+					// barcodePicker.setGuiStyle("viewfinder");
+					// barcodePicker.setViewfinderArea(200,300);
 
 					barcodePicker.on("scan", function(scanResult) {
 						document.getElementById("scandit-barcode-result").innerHTML =
