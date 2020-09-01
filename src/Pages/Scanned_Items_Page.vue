@@ -3,35 +3,42 @@
 		<h5 class>Scanned Items Page</h5>
 		<SettingsButton/>
 		<q-list>
-
 			<ScannedItem
 			v-for="(item,key) in items" 
 			:key="key"
 			:item="item"
-			:id="key">
-		</ScannedItem>
+			:id="item.barcode">
+			</ScannedItem>
+		</q-list>
 
-	</q-list>
-</q-page>
+	</q-page>
 </template>
 
 <script>
-	import { mapGetters } from "vuex"
-	import ScannedItem from '../components/Scanned_Item.vue'	
-	import SettingsButton from '../components/Settings_Button.vue'
+import { mapGetters } from "vuex"
+import ScannedItem from '../components/Scanned_Item.vue'	
+import SettingsButton from '../components/Settings_Button.vue'
 
-	export default {
-		computed:{
-			...mapGetters("items",["items"])
+export default {
+	data(){
+		return{
+		show:true
+		}
+	},
+	computed:{
+		...mapGetters("items",["items"]),
+		// itemSearch(){
+		// 	return this.$store.getters.database.itemSearch('22')
+		// }
+	},
 
-		},
-
-		components:{
-			SettingsButton,
-			ScannedItem
-		} 
-	};
+	components:{
+		SettingsButton,
+		ScannedItem
+	},
+};	
 </script>
 
 <style scoped>
+
 </style>

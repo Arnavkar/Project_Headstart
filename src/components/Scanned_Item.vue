@@ -29,9 +29,9 @@
 				</q-item-section> 
 			</q-card-section>
 		</q-card>
-
 		<q-separator spaced color="white" />
 	</div>
+	<!-- Maybe Use a QResponsive Above? -->
 </template>
 
 <script>
@@ -64,4 +64,5 @@ export default{
 .my-card{
 	height:150px;
 }
+
 </style>

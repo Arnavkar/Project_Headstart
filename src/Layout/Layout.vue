@@ -1,21 +1,22 @@
 <template>
   <div id= "app" >
     <q-layout view="hHh lpR fFf">
-
       <q-page-container>
-        <router-view></router-view>
+        <transition name = "view">
+          <router-view></router-view>
+        </transition>
       </q-page-container>
 
       <q-footer>
         <q-tabs
-        color="#1D9529">
-          <q-route-tab 
-          class="text-dark"
-          exact clickable
+        class="text-dark">
+          <q-route-tab
+          clickable
           v-for="nav in navs"
           :key="nav.label"
           :to="nav.to"
-          :icon="nav.icon" />
+          :icon="nav.icon"
+          :exact-active-class="nav.class"/>
         </q-tabs>
       </q-footer>
 
@@ -25,7 +26,6 @@
 
 <script>
 
-
 export default {
   data () {
     return {
@@ -34,25 +34,26 @@ export default {
           icon: "home",
           label:"Home",
           to:"/",
+          class: "text-green-7"
         },
         {
           icon:"party_mode",
           label:"camera",
           to:"/scanner",
+          class: "text-green-7"
         },
         {
           icon: "list",
-          label: "Data",
+          label:"Data",
           to: "/data",
-          size:"18px"
+          class: "text-green-7"
         },
         {
           icon: "favorite",
-          label: "history",
+          label:"History",
           to: "/history",
-          size:"18px"
+          class: "text-red"
         }
-
       ]
     } 
   },
@@ -61,9 +62,24 @@ export default {
 
 <style lang="stylus">
 @import '~quasar-variables-styl'
-
-.q-footer .q-router-link--exact-active {
-    color: #1D9529 !important;
+.q-footer{
+  border-radius:20px 20px 0px 0px;
+  box-shadow: 1px 1px 2px;
 }
 
+.view-enter-active, .view-leave-active{
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease;
+}
+
+.view-enter-active{
+  transition-delay: 0.5s
+}
+
+.view-enter, .view-leave-to {
+  opacity: 0;
+}
+
+.view-enter-to, .view-leave{
+  opacity: 1;
+}
 </style>

@@ -8,7 +8,8 @@ const state = {
     //Barcode is the item key
     items:{
     	'6922877700255':{
-    		name: 'Skippy: Chocolate Stripe',
+			name: 'Skippy: Chocolate Stripe',
+			barcode: '6922877700255',
     		image: 'https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//87/MTA-7281032/skippy_skippy_chocolate_stripe_-350_g-_full02_g5p1n3ct.jpg',
 			POM:'China',
 			manufacturer:'Nestle',

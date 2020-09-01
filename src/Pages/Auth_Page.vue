@@ -29,8 +29,9 @@
 				if(row[3]==""){
 					row[3] = "https://us.123rf.com/450wm/pavelstasevich/pavelstasevich1811/pavelstasevich181101029/112815932-stock-vector-no-image-available-icon-flat-vector-illustration.jpg?ver=6"
 				}
-				Vue.set(database, barcode, {
+				Vue.set(database,barcode, {
 					name: row[1],
+					barcode: barcode,
 					image: row[3],
 					POM:row[5],
 					manufacturer:row[4],
@@ -78,7 +79,7 @@
 					function readData() {
 						gapi.client.sheets.spreadsheets.values.get({
 							spreadsheetId: '1cVb20kWTHXWdOaDn6oaMxMXwXqBHzlpqRDI9UAxtXQk',
-							range: 'testsheet!A3:G23',
+							range: 'testsheet!A3:G25',
 						}).then(function(response) {
 							var range = response.result;
 							localStorage.setItem('database',JSON.stringify((createLocalDatabase(range))))
@@ -133,19 +134,10 @@
 				this.isSignedIn;
 			},
 		},
-		computed: {
-			
-		},
-
 		mounted() {
-			if (localStorage.getItem('database')==null){ //if not already stored
-				this.login() // login and read data 
-				var database = JSON.parse(localStorage.getItem('database'));
-				this.addDatabase(database)
-			} else {
-				var data = JSON.parse(localStorage.getItem('database'));
-				this.addDatabase(data)
-			}
+			this.login()
+			var database = JSON.parse(localStorage.getItem('database'))
+			this.addDatabase(database);
 		},
 	}
 </script> 

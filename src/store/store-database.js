@@ -19,6 +19,9 @@ const actions = {
 const getters = {
 	database: (state) => {
 		return state.database
+	},
+	itemSearch: (state) => (barcode) =>{
+		return state.database.find(item => item.barcode === barcode)
 	}
 }
 export default{
