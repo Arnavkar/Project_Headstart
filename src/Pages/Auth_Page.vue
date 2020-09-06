@@ -1,25 +1,24 @@
 <template>
-	<q-page class="q-pa-sm">
-		<SettingsButton/>
-		<div>
-			<button id="authorize_button" style="display: none;" v-on:click="handleAuthClick">Authorize</button>
-			<button id="signout_button" style="display: none;" v-on:click="handleSignoutClick">Sign Out</button>
+	<div>
+		<!--  START DESIGN OF LOGIN PAGE HERE -->
 
-			<input id="input" type="text">
-			<input id="submit" type="submit">
+		<img src="../assets/logo.jpeg"/>
+		<q-img src="../assets/logo.jpeg"/>
+		<q-btn :loading="loading1" color="secondary" @click="simulateProgress(1)" v-on:click="handleAuthClick" label="Login" class = "q-ma-md fixed-bottom login" />
+		
+		
+		
+		
 
-			<pre id="content" style="white-space: pre-wrap;"></pre>
-		</div>
-	</q-page>
+		<!--  END DESIGN OF LOGIN PAGE HERE -->
+
+		<!-- USED TO WRITE DATA -->
+		<!-- <input id="input" type="text">
+		<input id="submit" type="submit"> -->
+		<!-- <pre id="content" style="white-space: pre-wrap;"></pre> -->
+	</div>
 </template>
-
 <script>
-	function appendPre(message) {
-		var pre = document.getElementById('content');
-		var textContent = document.createTextNode(message + '\n');
-		pre.appendChild(textContent);
-	}
-
 	function createLocalDatabase(range){
 		var database = {};
 		if(range.values.length > 0){
@@ -35,7 +34,8 @@
 					image: row[3],
 					POM:row[5],
 					manufacturer:row[4],
-					rating: row[6]
+					rating: row[6],
+					additional: ""
 				})
 			}
 		} else {
@@ -43,15 +43,17 @@
 		}
 	return database
 	}
-
-	import SettingsButton from '../components/Settings_Button.vue'
+	
 	import Vue from 'vue'
 	import { mapActions } from "vuex"
+	import { bus } from '../main'
 	
 	export default{
 		name: 'Data',
-		components: {
-			SettingsButton
+		data(){
+			return{
+				loading1:false
+			}
 		},
 		methods: {
 			...mapActions('database',['addDatabase']),
@@ -83,18 +85,12 @@
 						}).then(function(response) {
 							var range = response.result;
 							localStorage.setItem('database',JSON.stringify((createLocalDatabase(range))))
-							if (range.values.length > 0) {
-								for (var i = 0; i < range.values.length; i++) {
-									var row = range.values[i];
-									appendPre(row[0] + ', ' + row[1] + ', ' + row[2] + ', ' + row[3] + ', ' + row[4] + ', ' + row[5] + ', ' + row[6]);
-								}
-							} else {
-								appendPre('No data found.');
-							}
 						}, function(response) {
 							console.log('Error: ' + response.result.error.message);
 						});
 					}
+
+					//function initializeScanner(){} = >PREVENT MULTIPLE INITIALIZATIONS OF THE SCANDIT SDK?
 
 					// function writeData() {
 					// 	var button = document.getElementById('submit');
@@ -127,22 +123,54 @@
 			},
 			handleAuthClick: function () {
 				this.$gapi.login();
+
+				setTimeout(() => {
+				this.$router.push('home')
+				}, 2000)
+
 				this.isSignedIn;
 			},
 			handleSignoutClick: function () {
 				this.$gapi.logout()
+
+				setTimeout(() => {
+				this.$router.push('login')
+				}, 2000)
+
 				this.isSignedIn;
 			},
+			simulateProgress (number) {
+				// we set loading state
+				this[`loading${number}`] = true
+				// simulate a delay
+				setTimeout(() => {
+				// we're done, we reset loading state
+				this[`loading${number}`] = false
+				}, 3000)
+			}
 		},
 		mounted() {
 			this.login()
 			var database = JSON.parse(localStorage.getItem('database'))
 			this.addDatabase(database);
+
+			bus.$on("sign-out", () => {
+			this.handleSignoutClick()
+			})
 		},
 	}
 </script> 
-<style scoped>
+
+<style  scoped>
 #app {
 	justify-content: space-between;
 }
+.login{
+	width:250px;
+	height:50px;
+	font-size:20px;
+	border-radius:30px;
+	position:relative;
+}
+
 </style>

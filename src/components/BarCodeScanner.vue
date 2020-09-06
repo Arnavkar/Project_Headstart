@@ -2,9 +2,7 @@
 	<div class = "container">
 		<!-- <title>Scandit Example Page</title> -->
 		<div id="scandit-barcode-picker" class="scanner"></div>
-		<div id="scandit-barcode-result" class="result-text">
-		<div id="conditions"></div>
-		</div>
+		<!-- <div id="scandit-barcode-result" class="result-text"></div> -->
 	</div>
 </template>
 
@@ -58,13 +56,12 @@
 						"code93", 
 						"itf"
 						], 
-						codeDuplicateFilter: 2000 });
+						codeDuplicateFilter: 1000 });
 					barcodePicker.applyScanSettings(scanSettings);
 					// barcodePicker.setGuiStyle("viewfinder");
 					// barcodePicker.setViewfinderArea(200,300);
 
 					barcodePicker.on("scan", function(scanResult) {
-						document.getElementById("scandit-barcode-result").innerHTML =
 						scanResult.barcodes.reduce(function(string, barcode) { 
 							code = (string + barcode.data);
 							type = (string + ScanditSDK.Barcode.Symbology.toHumanizedName(barcode.symbology));
@@ -89,14 +86,8 @@
 
 .scanner {
 	/*position: absolute;*/
-	
-	max-width: 1280px;
-	height: 100%;
+	/* max-width: 1280px;
+	height: 100%; */
 }
 
-.result-text {
-	padding: 1rem;
-	font-size: 30pt;
-	text-align: center;
-}
 </style>

@@ -1,7 +1,6 @@
 <template>
 	<q-page class="q-pa-sm">
-		<h5 class>Scanned Items Page</h5>
-		<SettingsButton/>
+		<h2 class="text-secondary q-mt-none">Saved Items</h2>
 		<q-list>
 			<ScannedItem
 			v-for="(item,key) in items" 
@@ -10,14 +9,13 @@
 			:id="item.barcode">
 			</ScannedItem>
 		</q-list>
-
 	</q-page>
 </template>
 
 <script>
 import { mapGetters } from "vuex"
 import ScannedItem from '../components/Scanned_Item.vue'	
-import SettingsButton from '../components/Settings_Button.vue'
+
 
 export default {
 	data(){
@@ -33,7 +31,6 @@ export default {
 	},
 
 	components:{
-		SettingsButton,
 		ScannedItem
 	},
 };	

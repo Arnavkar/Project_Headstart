@@ -29,7 +29,7 @@
     <transition 
     name="slide">
       <popup 
-      v-if = "show"
+      v-if = "displayItem"
       :item= "currentItem"></popup>
     </transition>
   </div>
@@ -37,7 +37,7 @@
 </template>
 
 <script>
-  import popup from '../components/slidecard.vue'
+  import popup from '../components/popup.vue'
   import BarCodeScanner from '../components/BarCodeScanner.vue'
   import { bus } from '../main'
   var database = JSON.parse(localStorage.getItem('database'));
@@ -55,27 +55,52 @@
         currentItem:{}
       }
     },
+
+    computed:{
+      displayItem: {
+        get: function(){
+          return this.show 
+        },
+        set: function(){
+          return this.show = !this.show
+        }
+      }
+    },
+
     methods:{
       searchAndRetrieve(string){
         if(database[string]==undefined){
           console.log( "item not found")
-          return {string:{
-            name: string,
+          var stockItem = {
+            name: "Sorry, we don't have this Item yet!",
             barcode: string,
             image: "https://us.123rf.com/450wm/pavelstasevich/pavelstasevich1811/pavelstasevich181101029/112815932-stock-vector-no-image-available-icon-flat-vector-illustration.jpg?ver=6",
             POM:'NA',
             manufacturer:'NA',
-            rating: "NA"
-          }}
+            rating: "NA",
+            additional: "Click to Request for Information on this product!"
+          }
+          return stockItem
         } else {
-          console.log(database[string])
           return database[string]
         }
       }
-		},
+    },
+    
     mounted(){
       bus.$on('scan-event',(data) => {
-        this.currentItem = this.searchAndRetrieve(data)
+        if (this.show==false){
+          this.currentItem = this.searchAndRetrieve(data)
+          console.log(this.currentItem)
+          this.show = true
+        } else {
+          this.show = false;
+          this.currentItem = this.searchAndRetrieve(data)
+          setTimeout(function(){bus.$emit('refresh')}, 500)
+        }
+      })
+
+      bus.$on('refresh',() => {
         this.show = true;
       })
     }

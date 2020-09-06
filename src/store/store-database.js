@@ -1,4 +1,3 @@
-/*eslint-disable*/
 const state = {
     database:{}
 	//if implementing firebase - firebase can't read arrays, only objects. Therefore we need to restructure tasks and a JSON object
@@ -20,9 +19,11 @@ const getters = {
 	database: (state) => {
 		return state.database
 	},
-	itemSearch: (state) => (barcode) =>{
-		return state.database.find(item => item.barcode === barcode)
-	}
+	// Not working , using browser local Storage instead
+	
+	// itemSearch: (state) => (barcode) =>{
+	// 	return state.database.find(item => item.barcode === barcode)
+	// }
 }
 export default{
 	namespaced: true,

@@ -13,7 +13,8 @@ const state = {
     		image: 'https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//87/MTA-7281032/skippy_skippy_chocolate_stripe_-350_g-_full02_g5p1n3ct.jpg',
 			POM:'China',
 			manufacturer:'Nestle',
-			rating: 2
+			rating: 2,
+			additional: ""
     	}
     }
 }

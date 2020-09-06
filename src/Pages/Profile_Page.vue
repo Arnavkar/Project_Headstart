@@ -1,25 +1,61 @@
 <template>
-	<div id = "app"> 
-		<Content
-		Name= 'Arnav Shirodkar'
-		email= 'arnavshirodkar@gmail.com'
-		mobile= '93893864'
-		dob= '04/11/1998'
-		gen= 'Male'
-		bank= 'POSB 257 - XXX - XXXX' />
-		<NavbarProfile/>
-	</div>
+	<q-page class="q-pa-sm">
+		<h2 class="text-secondary q-mt-none q-mb-sm"> Name </h2>
+        <p class="text-primary text-h7 q-mb-md"> Email </p>
+
+		<p class="text-secondary text-h6 q-mb-xl"> Exclusive Member since xx/xx/xxxx </p>
+
+		<div class="flex flex-center">
+			<!-- LABEL FOR EACH CIRCULAR BAR? -->
+			<q-circular-progress
+			show-value
+			font-size="20px"
+			:value="value"
+			size="140px"
+			:thickness="0.1"
+			color="teal"
+			track-color="grey-3"
+			class="q-ma-lg"
+			label="Number of Scanned Items"
+			>
+			{{ value }}
+			</q-circular-progress>
+
+			<q-circular-progress
+			show-value
+			font-size="20px"
+			:value="value"
+			size="140px"
+			:thickness="0.1"
+			color="teal"
+			track-color="grey-3"
+			class="q-ma-lg"
+			>
+			{{ value }}
+			</q-circular-progress>
+
+			<q-circular-progress
+			show-value
+			font-size="20px"
+			:value="value"
+			size="140px"
+			:thickness="0.1"
+			color="teal"
+			track-color="grey-3"
+			class="q-ma-lg"
+			>
+			{{ value }}
+			</q-circular-progress>
+		</div>
+	</q-page>
 </template>
 
 <script>
-	import Content from '../components/Content.vue';
-	import NavbarProfile from '../components/Navbar.vue';
-
-	export default{
-		name: 'Profile_Page',
-		components: {
-			Content,
-			NavbarProfile
-		}
-	}
-</script> 
+export default {
+  data () {
+    return {
+      value: 81
+    }
+  }
+}
+</script>

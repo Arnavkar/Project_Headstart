@@ -13,8 +13,8 @@
 
 				<q-card-section class="q-pa-md">
 					<div class="text-h6">{{item.name}}</div>
-					<div class="text-subtitle1">{{id}}</div>
-					<div class="text-subtitle2">Made by {{item.manufacturer}}, manufactured in {{item.POM}}</div>
+					<!-- <div class="text-subtitle1">{{id}}</div>
+					<div class="text-subtitle2">Made by {{item.manufacturer}}, manufactured in {{item.POM}}</div> -->
 					<div class="text-h6">Rating: {{item.rating}} / 5</div>
 				</q-card-section>
 				<q-space/>

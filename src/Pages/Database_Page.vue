@@ -1,33 +1,27 @@
 <template>
 	<q-page class="q-pa-sm">
-		<h5 class>Database Page</h5>
-		<SettingsButton/>
+		<h2 class="text-secondary q-mt-none">Database</h2>
 		<q-list>
-
-			<ScannedItem
+		<ScannedItem
 			v-for="(item,key) in database" 
 			:key="key"
 			:item="item"
 			:id="key">
 		</ScannedItem>
-
-	</q-list>
-</q-page>
+		</q-list>
+	</q-page>
 </template>
 
 <script>
 	import { mapGetters } from "vuex"
-	import ScannedItem from '../components/Scanned_Item.vue'	
-	import SettingsButton from '../components/Settings_Button.vue'
+	import ScannedItem from '../components/Scanned_Item.vue'
 
 	export default {
 		computed:{
 			...mapGetters("database",["database"])
-
 		},
 
 		components:{
-			SettingsButton,
 			ScannedItem
 		} 
 	};

@@ -9,16 +9,26 @@
 						style= "height:125px"
 						contain
 						:src = "item.image"/>
-						<q-btn clickable color="secondary" label="More Info" size="13px" class="q-mt-sm"/>
+						<q-btn color="secondary" label="More Info" size="13px" class="q-mt-sm" v-on:click="passInfo"/>
                 </q-card-section>
 				<q-separator vertical inset />
 				<q-card-section horizontal class="text q-ma-md">
-					<q-card-actions vertical>
+					<q-card-actions vertical class = "col">
 						<span class="text-h6">{{item.name}}</span>
 						<q-space/>
-						<span class="text-h6">Country of Manufacture: {{item.POM}} </span>
+						<p class="text-h6"> Rating: 
+						<q-rating
+						:value="item.rating"
+						max="5"
+						size="2em"
+						color="grey"
+						:color-selected="ratingColors"
+						icon="star_border"
+						icon-selected="star"
+						readonly/> </p>
 						<q-space/>
-						<span class="text-h6">Rating: {{item.rating}} / 5</span>
+						<span class="text-h7">Place of Manufacture: {{item.POM}} </span>
+						<span class = "text-caption"> {{item.additional}} </span>
 					</q-card-actions>
 				</q-card-section>
 				<q-space/>
@@ -36,16 +46,24 @@
 				</q-item-section> 
 			</q-card-section>
 		</q-card>
+		<infopage
+		:item= "item"/>
 	</div>
 </template>
 <script>
+import infopage from '../components/ItemInfo.vue'
+import { bus } from '../main'
 export default {
 	name:"pop",
 	props:["item"],
+	components:{
+		infopage
+	},
 	data(){
 		return{
 			isFavorite:false,
-			string:"favorite_outlined"
+			string:"favorite_outlined",
+			ratingColors: [ 'light-green-3', 'light-green-6', 'green', 'green-9', 'green-10' ]
 		}
 	},
 	methods:{
@@ -56,6 +74,9 @@ export default {
 				this.string = "favorite_outlined"
 			}
 			return this.string
+		},
+		passInfo(){
+			bus.$emit("pass-info")
 		}
 	}
 }
@@ -73,14 +94,10 @@ export default {
 	max-width:280px;
 }
 
-
 .photo{
 	width:200px;
 	text-align:center;
 }
 
-.container{
-	display:flex;
-}
 
 </style>
