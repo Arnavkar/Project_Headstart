@@ -10,6 +10,7 @@ import Database from '../Pages/Database_Page.vue'
 import profile from'../Pages/Profile_Page.vue'
 import request from '../Pages/Request_Page.vue'
 import update from '../Pages/Update_Page.vue'
+import SignUp from '../Pages/SignUp_Page.vue'
 
 
 const routes = [
@@ -58,8 +59,12 @@ const routes = [
 	]
 	},
 	{
-	path: '/',
+	path: '/login',
 	component: Auth
+	},
+	{
+	path: '/signup',
+	component: SignUp
 	}
 ]
 

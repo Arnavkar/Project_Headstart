@@ -20,9 +20,10 @@
 						</q-toolbar>
 					</q-header>
 				</q-layout>
-			<div class="q-px-xl q-pt-xl text-h3 text-weight-medium">Welcome</div>
-			<div class="q-px-xl text-h3 text-weight-medium">Back</div>
-			<div class="q-px-xl q-pt-lg text-subtitle1">We just need your email to get you back in</div>
+			<div class="q-px-xl q-pt-xl text-h3 text-weight-medium">Create</div>
+			<div class="q-px-xl text-h3 text-weight-medium">Account</div>
+			<div class="q-px-xl q-pt-lg text-subtitle1">The Earth is what we all have in common.</div>
+            <div class="q-px-xl text-subtitle1">-Wendell Berry</div>
 			<br>
 			</div>
 		<!-- <img src="../assets/Logo.png"/>
@@ -46,6 +47,17 @@
 					</q-avatar>
 					<!--  -->
 					</q-input>
+                    <q-input
+						filled
+						outlined
+						color="primary"
+						v-model="text"
+						label="Name"
+					>
+					<template v-slot:before>
+					<q-icon name="sentiment_satisfied" color="primary"/>
+					</template>
+					</q-input>
 				</q-form>
                 <div>
                     <q-btn 
@@ -54,7 +66,7 @@
                     text-color="dark"
                     @click="simulateProgress(1)" 
                     v-on:click="handleAuthClick" 
-                    label="Login" 
+                    label="Sign Up" 
                     class = "q-pa-m q-mt-lg fixed-bottom login"
                     style="width:100%;"/>
                 
@@ -69,7 +81,7 @@
                     color="first" 
                     @click="simulateProgress(1)" 
                     v-on:click="handleAuthClick" 
-                    label="Sign Up" 
+                    label="Login" 
                     text-color="dark"
                     class = "q-pa-m fixed-bottom login"
                     style="width: 100%"/>
@@ -190,7 +202,7 @@
 				this.$gapi.login();
 
 				setTimeout(() => {
-				this.$router.push('/b/home')
+				this.$router.push('home')
 				}, 2000)
 
 				this.isSignedIn;
@@ -199,7 +211,7 @@
 				this.$gapi.logout()
 
 				setTimeout(() => {
-				this.$router.push('')
+				this.$router.push('login')
 				}, 2000)
 
 				this.isSignedIn;

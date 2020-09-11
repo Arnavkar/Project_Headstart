@@ -4,12 +4,13 @@
         <p class="text-h5 q-mt-md"> Update Information </p>
     </portal>
     <q-page>
-    <img src="../assets/Background.png" class = "background"/>
+    <img src="../assets/Background.png" class = "background absolute-top"/>
     <div>
-        <p class="text-darktext text-h5 q-pa-sm q-pt-xl"> Tell us what we don't know!</p>
+        <p class="text-darktext text-h5 q-pa-sm q-pt-xl" style="position: absolute;
+	top: 30%;"> Tell us what we don't know!</p>
         <q-form
         flat
-        class="q-mt-sm q-pa-md absolute-bottom my-form"
+        class="q-mt-sm q-pa-lg my-form"
         @submit="onSubmit"
         @reset="onReset">
             <div>
@@ -128,14 +129,16 @@ export default {
     z-index:1000;
     background-color:white;
     border-radius: 30px 30px 0px 0px;
+	position: absolute;
+	top: 40%;
+	width: 100%;
 }
 
 .background{
-    z-index:-100;
-    position:absolute;
-    top:-17%;
-    left:-20%;
-    width:150%;
+    height: 100%;
+	width: 100%;
+	z-index: -100;
+	opacity: 80%;
 }
 
 .q-textarea .q-field__control {
