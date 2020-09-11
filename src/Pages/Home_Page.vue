@@ -1,7 +1,6 @@
 <template>
     <q-page padding>
         <div class="q-pa-md q-gutter-sm">
-        <q-btn label="Carousel" color="primary"/>
         <q-dialog v-model="carousel">
             <q-carousel
             transition-prev="slide-right"

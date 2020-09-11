@@ -12,22 +12,19 @@
 						<q-btn color="secondary" label="More Info" size="13px" class="q-mt-sm" v-on:click="passInfo"/>
                 </q-card-section>
 				<q-separator vertical inset />
-				<q-card-section horizontal class="text q-ma-md">
+				<q-card-section horizontal class="text q-ma-sm">
 					<q-card-actions vertical class = "col">
 						<span class="text-h6">{{item.name}}</span>
-						<q-space/>
-						<p class="text-h6"> Rating: 
 						<q-rating
 						:value="item.rating"
 						max="5"
-						size="2em"
+						size="25px"
 						color="grey"
 						:color-selected="ratingColors"
-						icon="star_border"
-						icon-selected="star"
-						readonly/> </p>
-						<q-space/>
-						<span class="text-h7">Place of Manufacture: {{item.POM}} </span>
+						icon="eco_border"
+						icon-selected="eco"
+						readonly/>
+						<span class="text-h7"> Made in {{item.POM}} </span>
 						<span class = "text-caption"> {{item.additional}} </span>
 					</q-card-actions>
 				</q-card-section>
@@ -95,7 +92,7 @@ export default {
 }
 
 .photo{
-	width:200px;
+	width:150px;
 	text-align:center;
 }
 

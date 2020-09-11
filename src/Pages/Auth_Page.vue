@@ -125,7 +125,7 @@
 				this.$gapi.login();
 
 				setTimeout(() => {
-				this.$router.push('home')
+				this.$router.push('/b/home')
 				}, 2000)
 
 				this.isSignedIn;
@@ -134,7 +134,7 @@
 				this.$gapi.logout()
 
 				setTimeout(() => {
-				this.$router.push('login')
+				this.$router.push('')
 				}, 2000)
 
 				this.isSignedIn;

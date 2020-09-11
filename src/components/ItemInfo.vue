@@ -34,7 +34,19 @@
           <p
           class = "text-h6">Cons:</p>
           <p>Con</p>  
-          <button class="item save">Save item</button>
+          <!-- <button class="item save">Save item</button> -->
+          <q-btn 
+          elevated 
+          label="Product rating request" 
+          icon="info"
+          class = "q-ma-md item" />
+
+          <q-btn 
+          elevated 
+          icon="announcement"
+          label="Report Outdated Information" 
+          class = "q-ma-md item" />
+
       </q-card>
     </q-dialog>
   </q-page>
@@ -61,8 +73,8 @@ export default {
 <style scoped>
 
 .container {
-  width:120vw;
-  height:80vh;
+  width:100%;
+  height:100%;
   border-radius:10px;
 }
 #itemimg {
@@ -79,19 +91,14 @@ export default {
 }
 
 .item {
-  background-color: #99d3b9;
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  color: black;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
+  width:90.5%;
+  background-color:white;
   transition-duration: 0.2s;
   cursor: pointer;
-  position: absolute;
   border-radius: 7px;
 }
 .item:hover {
-  background: grey;
+  background: #26A69A;
   color: white;
 }
 .save {

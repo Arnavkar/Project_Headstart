@@ -19,19 +19,6 @@
         </q-toolbar>
       </q-header>
 
-      <q-footer>
-        <q-tabs
-        class="text-dark">
-          <q-route-tab
-          clickable
-          v-for="nav in navs"
-          :key="nav.label"
-          :to="nav.to"
-          :icon="nav.icon"
-          :exact-active-class="nav.class"/>
-        </q-tabs>
-      </q-footer>
-
       <q-drawer v-model="right" side="right" overlay behavior="mobile" elevated>
         <q-list dark>
           <q-item-label header> Navigation </q-item-label>
@@ -78,33 +65,12 @@ export default {
   data () {
     return {
       right:false,
-      navs:[
-        {
-          icon: "home",
-          label:"Home",
-          to:"/b/home",
-          class: "text-green-7"
-        },
-        {
-          icon:"party_mode",
-          label:"camera",
-          to:"/b/scanner",
-          class: "text-green-7"
-        },
-        {
-          icon: "list",
-          label:"Data",
-          to: "/b/data",
-          class: "text-green-7"
-        },
-        {
-          icon: "favorite",
-          label:"History",
-          to: "/b/history",
-          class: "text-red"
-        }
-      ],
       drawerTabs:[
+         {
+          icon: "house",
+          label: "Home",
+          to: "/b/home"
+        },
         {
           icon: "account_circle",
           label: "Account Information",
@@ -158,10 +124,6 @@ export default {
 <style lang="stylus" primary>
 @import '~quasar-variables-styl'
 
-.q-footer{
-  border-radius:20px 20px 0px 0px;
-}
-
 .view-enter-active, .view-leave-active{
   transition: opacity 0.5s ease-in-out, transform 0.5s ease;
 }
@@ -182,5 +144,6 @@ export default {
   border-radius:0px 0px 15px 15px;
   border-bottom-style:solid;
   border-bottom-width:1px;
+  border-bottom-color:white;
 }
 </style>

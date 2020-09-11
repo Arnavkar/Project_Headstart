@@ -1,6 +1,8 @@
 <template>
 	<q-page class="q-pa-sm">
-		<h2 class="text-secondary q-mt-none">Database</h2>
+	<portal to="header">
+		<p class="text-h4 q-mt-md">Database</p>
+	</portal>
 		<q-list>
 		<ScannedItem
 			v-for="(item,key) in database" 
