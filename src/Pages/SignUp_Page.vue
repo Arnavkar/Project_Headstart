@@ -71,7 +71,7 @@
                     style="width:100%;"/>
                 
 
-                    <text-caption class="q-pa-lg or">
+                    <text-caption class="q-pa-sm or">
                         <hr>
                         or
                         <hr>
@@ -83,7 +83,7 @@
                     v-on:click="handleAuthClick" 
                     label="Login" 
                     text-color="dark"
-                    class = "q-pa-m fixed-bottom login"
+                    class = " fixed-bottom login"
                     style="width: 100%"/>
 				</div>
 			</div>
@@ -246,7 +246,7 @@
 	width:250px;
 	height:50px;
 	font-size:20px;
-	border-radius:30px;
+	border-radius:15px;
 	position:relative;
 }
 hr{

@@ -31,7 +31,6 @@
 		</q-card>
 		<q-separator spaced color="white" />
 	</div>
-	<!-- Maybe Use a QResponsive Above? -->
 </template>
 
 <script>
