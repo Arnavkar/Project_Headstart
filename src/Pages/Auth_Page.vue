@@ -6,12 +6,11 @@
 			<div class="q-ma-md">
 				<q-btn 
 				flat
-				@click="drawerLeft = !drawerLeft"
+				@click= "goBack"
 				round 
 				dense 
 				icon="navigate_before" 
 				color="dark" 
-				style=round
 				size="20px">
 				</q-btn>
 				<div class="q-px-xl q-pt-xl text-h3 text-weight-medium">Welcome</div>
