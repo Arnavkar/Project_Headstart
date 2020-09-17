@@ -11,24 +11,25 @@
       class="bg-white text-secondary header"
       >
         <q-toolbar>
-          <q-btn dense flat round icon="keyboard_arrow_left" @click= "goBack" size = "20px" /> 
+          <q-btn dense flat color="dark" round icon="keyboard_arrow_left" @click= "goBack" size = "20px" /> 
           <q-toolbar-title style="display:flex; justify-content:center;">
             <portal-target name="header"></portal-target>
           </q-toolbar-title>
-          <q-btn dense flat round icon="signal_cellular_alt" size = "20px" @click="right = !right"  class="rotate-270"/>
+          <q-btn dense flat color="dark" round icon="signal_cellular_alt" size = "20px" @click="right = !right"  class="rotate-270"/>
         </q-toolbar>
       </q-header>
 
       <q-footer>
         <q-tabs
-        class="text-dark">
+        class="bg-light text-viridian nav_bar" inline-label indicator-color="transparent" align="justify">
           <q-route-tab
           clickable
           v-for="nav in navs"
           :key="nav.label"
           :to="nav.to"
           :icon="nav.icon"
-          :exact-active-class="nav.class"/>
+          :active-class="nav.activeClass"
+          v-bind:label="nav.label"/>
         </q-tabs>
       </q-footer>
 
@@ -83,25 +84,25 @@ export default {
           icon: "home",
           label:"Home",
           to:"/b/home",
-          class: "text-green-7"
+          activeClass: "white-oval",
         },
         {
-          icon:"party_mode",
-          label:"camera",
+          icon:"mdi-barcode-scan",
+          label:"scan",
           to:"/b/scanner",
-          class: "text-green-7"
+          activeClass: "white-oval"
         },
         {
           icon: "list",
           label:"Data",
           to: "/b/data",
-          class: "text-green-7"
+          activeClass: "white-oval"
         },
         {
           icon: "favorite",
-          label:"History",
+          label:"saved",
           to: "/b/history",
-          class: "text-red"
+          activeClass: "white-oval"
         }
       ],
       drawerTabs:[
@@ -179,8 +180,33 @@ export default {
 }
 
 .q-header{
-  border-radius:0px 0px 15px 15px;
+  border-radius:0px 0px 30px 30px;
   border-bottom-style:solid;
   border-bottom-width:1px;
+}
+
+.bg-light {
+  background: #C3EFDB;
+}
+
+.text-viridian{
+  color: #3B8171
+}
+
+.bg-viridian{
+  background: #3B8171
+}
+
+.white-oval{
+  border-radius: 10vw;
+  background: white;
+}
+
+.nav_bar{
+  padding: 1vw;
+}
+
+.nav_bar a{
+  padding: 1vw 4vw;
 }
 </style>

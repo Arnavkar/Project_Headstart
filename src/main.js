@@ -6,6 +6,7 @@ import VueGAPI from 'vue-gapi'
 import PortalVue from 'portal-vue'
 export const bus = new Vue();
 
+
 Vue.config.productionTip = false
 Vue.config.devtools = true
 

@@ -4,30 +4,28 @@
 		<!--  START DESIGN OF LOGIN PAGE HERE -->
 			<img src="../assets/Background.png" class="background absolute-top"/>
 			<div class="q-ma-md">
-				<q-layout container style="height: 50px">
-					<q-header class="bg-colorless" elevated>
-						<q-toolbar>
-						<q-btn 
-						flat
-						@click="drawerLeft = !drawerLeft"
-						round 
-						dense 
-						icon="navigate_before" 
-						color="dark" 
-						style=round
-						size="20px">
-						</q-btn>
-						</q-toolbar>
-					</q-header>
-				</q-layout>
-			<div class="q-px-xl q-pt-xl text-h3 text-weight-medium">Create</div>
-			<div class="q-px-xl text-h3 text-weight-medium">Account</div>
-			<div class="q-px-xl q-pt-lg text-subtitle1">The Earth is what we all have in common.</div>
-            <div class="q-px-xl text-subtitle1">-Wendell Berry</div>
-			<br>
+				<q-btn 
+				flat
+				@click= "goBack"
+				round 
+				dense 
+				icon="navigate_before" 
+				color="dark" 
+				size="20px">
+				</q-btn>
+				<div class="q-px-xl q-pt-xl text-h3 text-weight-medium">Create</div>
+				<div class="q-px-xl text-h3 text-weight-medium">Account</div>
+				<div class="q-px-xl q-pt-lg text-subtitle1">The Earth is what we all have in common.</div>
+				<div class="q-px-xl text-subtitle1">-Wendell Berry</div>
+				<br>
 			</div>
 		<!-- <img src="../assets/Logo.png"/>
 		<q-img src="../assets/Logo.png" native-context-menu alt="Logo" basic style="height: 10px;max-width: 10px;o"> </q-img> -->
+			<div class="curved">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+			<path fill="#FFF" fill-opacity="1" d="M0,192L80,192C160,192,320,192,480,170.7C640,149,800,107,960,96C1120,85,1280,107,1360,117.3L1440,128L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
+			</svg>
+			</div>
 			<div class="q-pa-lg white-block">
 				<q-form>
 					<q-input
@@ -266,21 +264,26 @@ hr{
 	top: 50%;
 	width: 100%;
 	height: 100%;
-    border-radius: 30px 30px 0px 0px;
 }
+
+.curved{
+	background: transparent;
+	position: relative;
+	bottom:20%;
+	z-index: -1;
+}
+
+.curved svg{
+	display: block;
+	width: 100vw;
+	height: 50vh;
+}
+
 .background{
 	height: 100%;
-	width: 100%;
+	width: 102%;
 	z-index: -100;
 	opacity: 80%;
 }
-.text-first {
-  color: #98D3B9;
-}
-.bg-first {
-  background: #98D3B9;
-}
-.bg-colorless{
-	background:rgba(255, 255, 255, 0);
-}
+
 </style>
