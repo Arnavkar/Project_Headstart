@@ -13,28 +13,28 @@
                 v-model="slide"
                 control-color="primary"
                 navigation-icon="radio_button_unchecked"
+                navigation-active-icon="mdi-record"
                 navigation
                 padding
-                height="200px"
-                class="bg-white shadow-1 rounded-borders"
+                class="bg-white shadow-1 rounded-borders slides"
                 >
                 <q-carousel-slide :name="1" class="column no-wrap flex-center">
-                    <q-icon name="style" color="primary" size="56px" />
-                    <div class="q-mt-md text-center">
+                    <img class="rounded-borders col-6 slides" src="../assets/Slide1.png" />
+                    <div class="q-mt-lg text-center text-h4">
                     {{ slide1 }}
                     </div>
                 </q-carousel-slide>
 
                 <q-carousel-slide :name="2" class="column no-wrap flex-center">
-                    <q-icon name="live_tv" color="primary" size="56px" />
-                    <div class="q-mt-md text-center">
+                    <img class="rounded-borders col-6 slides" src="../assets/Slide2.png" />
+                    <div class="q-mt-lg text-center text-h4">
                     {{ slide2 }}
                     </div>
                 </q-carousel-slide>
                 
                 <q-carousel-slide :name="3" class="column no-wrap flex-center">
-                    <q-icon name="layers" color="primary" size="56px" />
-                    <div class="q-mt-md text-center">
+                    <img class="rounded-borders col-6 slides" src="../assets/Slide3.png" />
+                    <div class="q-mt-lg text-center text-h4">
                     {{ slide3 }}
                     </div>
                 </q-carousel-slide>
@@ -62,9 +62,9 @@ export default {
         return {
             carousel: true,
             slide: 1, 
-            slide1: "START SHOPPING",
-            slide2: "START SCANNING",
-            slide3: "VIEW SUSTAINABILITY RATING",
+            slide1: "Start Shopping",
+            slide2: "Start Scanning",
+            slide3: "View Sustainability Rating",
             lorem: "INSERT INFO HERE FOR EACH SLIDE AS REQUIRED"
         }
     },
@@ -75,5 +75,12 @@ export default {
 
 </script>
 <style>
+
+.slides{
+    height: 100%;
+    width: 100%;
+    /* min-width: 60vw;
+    min-height: 60vh; */
+}
 
 </style>
