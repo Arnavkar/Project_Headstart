@@ -22,7 +22,7 @@
 		<q-img src="../assets/Logo.png" native-context-menu alt="Logo" basic style="height: 10px;max-width: 10px;o"> </q-img> -->
 			<div class="curved">
 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-			<path fill="#FFF" fill-opacity="1" d="M0,192L80,192C160,192,320,192,480,170.7C640,149,800,107,960,96C1120,85,1280,107,1360,117.3L1440,128L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
+			<path fill="#FFF" fill-opacity="1" d="M0,192L48,197.3C96,203,192,213,288,208C384,203,480,181,576,154.7C672,128,768,96,864,112C960,128,1056,192,1152,224C1248,256,1344,256,1392,256L1440,256L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
 			</svg>
 			</div>
 			<div class="q-pa-lg white-block">
@@ -257,7 +257,7 @@ hr{
 .curved{
 	background: transparent;
 	position: relative;
-	bottom:20%;
+	bottom:27%;
 	z-index: -1;
 }
 

@@ -32,7 +32,7 @@
                     </div>
                 </q-carousel-slide>
                 
-                <q-carousel-slide :name="3" class="column no-wrap flex-center">
+                <q-carousel-slide :name="3" class="column no-wrap flex-center" :fullscreen.sync="isFullscreen">
                     <img class="rounded-borders col-6 slides" src="../assets/Slide3.png" />
                     <div class="q-mt-lg text-center text-h4">
                     {{ slide3 }}
