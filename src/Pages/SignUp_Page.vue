@@ -2,7 +2,7 @@
 	<div style="position: absolute; height: 100%; width: 100%;">  
 		<!--help i want to change the colour to light nstead of primary but it doesn't show-->
 		<!--  START DESIGN OF LOGIN PAGE HERE -->
-			<img src="../assets/Background.png" class="background absolute-top"/>
+			<img src="../assets/bg2.png" class="background absolute-top"/>
 			<div class="q-ma-md">
 				<q-btn 
 				flat
@@ -53,7 +53,7 @@
 						label="Name"
 					>
 					<template v-slot:before>
-					<q-icon name="sentiment_satisfied" color="primary"/>
+					<q-icon name="mdi-card-account-details" color="primary"/>
 					</template>
 					</q-input>
 				</q-form>
@@ -261,7 +261,7 @@ hr{
 .white-block{
 	background-color: white; 
 	position: absolute;
-	top: 50%;
+	top: 50vh;
 	width: 100%;
 	height: 100%;
 }
@@ -269,7 +269,7 @@ hr{
 .curved{
 	background: transparent;
 	position: relative;
-	bottom:20%;
+	bottom:25vh;
 	z-index: -1;
 }
 
@@ -280,8 +280,8 @@ hr{
 }
 
 .background{
-	height: 100%;
-	width: 102%;
+	height: auto;
+	width: 100%;
 	z-index: -100;
 	opacity: 80%;
 }

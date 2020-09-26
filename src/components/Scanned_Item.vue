@@ -23,8 +23,8 @@
 					@click.stop="promptToDelete(id)" 
 					flat
 					color="bg-dark"
-					icon= "delete"
-					size="15px"
+					icon= "mdi-delete-empty"
+					size="20px"
 					dense/>
 				</q-item-section> 
 			</q-card-section>

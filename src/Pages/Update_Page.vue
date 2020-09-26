@@ -70,7 +70,7 @@
                 icon="send"
                 label="Submit" 
                 type="submit" 
-                color="secondary" />
+                color="secondary"/>
             </div>
         </q-form>
     </div>
@@ -136,7 +136,7 @@ export default {
 
 .background{
     height: 100%;
-	width: 100%;
+	width: 102%;
 	z-index: -100;
 	opacity: 80%;
 }

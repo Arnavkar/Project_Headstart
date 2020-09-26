@@ -1,7 +1,7 @@
 <template>
   <q-page >
     <q-card class = "absolute-center">
-      <BarCodeScanner/> 
+      <BarCodeScanner/>
     </q-card>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" rel="stylesheet" type="text/css">
     <!-- q card with tabs enabled!-->
@@ -11,15 +11,11 @@
         <q-tab-panel name="one">
           <BarCodeScanner class = "scanner"/>
         </q-tab-panel>
-
         <q-tab-panel name="two">
           <p> Receipt Scanner </p>
         </q-tab-panel>
-
       </q-tab-panels>
-
     <q-separator/>
-
     <q-tabs v-model="tab" class="text-teal ">
       <q-tab label = "Barcode" name="one"/>
       <q-tab label = "Receipt" name="two"/>
@@ -41,7 +37,6 @@
   import BarCodeScanner from '../components/BarCodeScanner.vue'
   import { bus } from '../main'
   var database = JSON.parse(localStorage.getItem('database'));
-
   export default{
     name: 'Scanner_Page',
     components: {
@@ -55,7 +50,6 @@
         currentItem:{}
       }
     },
-
     computed:{
       displayItem: {
         get: function(){
@@ -66,7 +60,6 @@
         }
       }
     },
-
     methods:{
       searchAndRetrieve(string){
         if(database[string]==undefined){
@@ -99,30 +92,24 @@
           setTimeout(function(){bus.$emit('refresh')}, 500)
         }
       })
-
       bus.$on('refresh',() => {
         this.show = true;
       })
     }
   }
-
 </script>
 
 <style>
-
 .slide-enter-active, .slide-leave-active{
   transition: opacity 0.5s ease-in-out, transform 0.5s ease;
 }
-
 .slide-enter-active{
   transition-delay: 0.5s
 }
-
 .slide-enter, .slide-leave-to {
   opacity: 0;
   transform: translateY(-200px);
 }
-
 .slide-enter-to, .slide-leave{
   opacity: 1;
   transform: translateY(0px);

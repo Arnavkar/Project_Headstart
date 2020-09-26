@@ -38,6 +38,14 @@
                     {{ slide3 }}
                     </div>
                 </q-carousel-slide>
+
+                <!-- <q-carousel-slide :name="2" class="column no-wrap flex-center">
+                    <img class="rounded-borders col-6 slides" src="../assets/Slide4.png" />
+                    <div class="q-mt-lg text-center text-h4">
+                    {{ slide4 }}
+                    </div>
+                </q-carousel-slide> -->
+
                 </q-carousel>
             </q-dialog>
         </div>
@@ -55,9 +63,10 @@ export default {
         return {
             carousel: true,
             slide: 1, 
-            slide1: "Start Shopping",
-            slide2: "Start Scanning",
-            slide3: "View Sustainability Rating",
+            slide1: "Start shopping",
+            slide2: "Start scanning",
+            slide3: "View sustainability rating",
+            slide4: "Watch your plant grow",
         }
     },
     components: {

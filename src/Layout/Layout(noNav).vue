@@ -11,11 +11,11 @@
       class="bg-white text-secondary header"
       >
         <q-toolbar>
-          <q-btn dense flat round icon="keyboard_arrow_left" @click= "goBack" size = "20px" /> 
-          <q-toolbar-title style="display:flex; justify-content:center;">
+          <q-btn dense flat round color="dark" icon="keyboard_arrow_left" @click= "goBack" size = "20px" /> 
+          <q-toolbar-title class="text-dark" style="display:flex; justify-content:center;">
             <portal-target name="header"></portal-target>
           </q-toolbar-title>
-          <q-btn dense flat round icon="signal_cellular_alt" size = "20px" @click="right = !right"  class="rotate-270"/>
+          <q-btn dense flat round color="dark" icon="signal_cellular_alt" size = "20px" @click="right = !right"  class="rotate-270"/>
         </q-toolbar>
       </q-header>
 

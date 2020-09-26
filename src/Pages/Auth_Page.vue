@@ -2,7 +2,7 @@
 	<div style="position: absolute; height: 100%; width: 100%;">  
 		<!--help i want to change the colour to light nstead of primary but it doesn't show-->
 		<!--  START DESIGN OF LOGIN PAGE HERE -->
-			<img src="../assets/Background.png" class="background absolute-top"/>
+			<img src="../assets/bg1.png" class="background absolute-top"/>
 			<div class="q-ma-md">
 				<q-btn 
 				flat
@@ -20,11 +20,11 @@
 			</div>
 		<!-- <img src="../assets/Logo.png"/>
 		<q-img src="../assets/Logo.png" native-context-menu alt="Logo" basic style="height: 10px;max-width: 10px;o"> </q-img> -->
-			<!-- <div class="curved">
+			<div class="curved">
 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
 			<path fill="#FFF" fill-opacity="1" d="M0,192L48,197.3C96,203,192,213,288,208C384,203,480,181,576,154.7C672,128,768,96,864,112C960,128,1056,192,1152,224C1248,256,1344,256,1392,256L1440,256L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
 			</svg>
-			</div> -->
+			</div>
 			<div class="q-pa-lg white-block">
 				<q-form>
 					<q-input
@@ -56,7 +56,6 @@
                     class = "q-pa-m q-mt-lg fixed-bottom login"
                     style="width:100%;"/>
                 
-
                     <text-caption class="q-pa-lg or">
                         <hr>
                         or
@@ -217,7 +216,7 @@ hr{
 .white-block{
 	background-color: white; 
 	position: absolute;
-	top: 50%;
+	top: 50vh;
 	width: 100%;
 	height: 100%;
 }
@@ -225,7 +224,7 @@ hr{
 .curved{
 	background: transparent;
 	position: relative;
-	bottom:27%;
+	bottom:22vh;
 	z-index: -1;
 }
 
@@ -236,8 +235,8 @@ hr{
 }
 
 .background{
-	height: 100%;
-	width: 102%;
+	height: auto;
+	width: 100%;
 	z-index: -100;
 	opacity: 80%;
 }

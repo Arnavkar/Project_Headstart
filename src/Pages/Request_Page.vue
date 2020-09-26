@@ -138,11 +138,9 @@ export default {
 }
 
 .background{
-    z-index:-100;
-    position:absolute;
-    top:-17%;
-    left:-20%;
-    width:150%;
+	width: 102%;
+	z-index: -100;
+	opacity: 80%;
 }
 
 

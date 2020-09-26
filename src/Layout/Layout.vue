@@ -192,6 +192,10 @@ export default {
   border-bottom-width:1px;
 }
 
+a.q-tab{
+  transition: all 0.3s;
+}
+
 .bg-light {
   background: #C3EFDB;
 }
