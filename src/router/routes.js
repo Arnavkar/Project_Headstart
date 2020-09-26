@@ -11,6 +11,7 @@ import profile from'../Pages/Profile_Page.vue'
 import request from '../Pages/Request_Page.vue'
 import update from '../Pages/Update_Page.vue'
 import SignUp from '../Pages/SignUp_Page.vue'
+import add from '../Pages/Add_Page.vue'
 
 
 const routes = [
@@ -55,7 +56,12 @@ const routes = [
 		{
 		path: 'update_info',
 		component: update
-		}
+		},
+		{
+		path: 'add_item',
+		component: add
+		},
+
 	]
 	},
 	{

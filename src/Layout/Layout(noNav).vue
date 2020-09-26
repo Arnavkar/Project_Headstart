@@ -27,6 +27,7 @@
             v-for="tab in drawerTabs"
             :key="tab.label"
             :to="tab.to"
+            :class="tab.class"
             exact
             clickable
             bordered>
@@ -90,6 +91,12 @@ export default {
           icon: "announcement",
           label: "Update Item Information",
           to: "/n/update_info"
+        },
+        {
+          icon: "star",
+          label: "Add Items (exclusive)",
+          to: "/n/add_item",
+          class:"exclusive"
         }
       ]
     } 
@@ -145,5 +152,9 @@ export default {
   border-bottom-style:solid;
   border-bottom-width:1px;
   border-bottom-color:white;
+}
+
+.exclusive{
+  background: #C3EFDB;
 }
 </style>

@@ -32,17 +32,10 @@
                     </div>
                 </q-carousel-slide>
                 
-                <q-carousel-slide :name="3" class="column no-wrap flex-center" :fullscreen.sync="isFullscreen">
+                <q-carousel-slide :name="3" class="column no-wrap flex-center">
                     <img class="rounded-borders col-6 slides" src="../assets/Slide3.png" />
                     <div class="q-mt-lg text-center text-h4">
                     {{ slide3 }}
-                    </div>
-                </q-carousel-slide>
-
-                <q-carousel-slide :name="4" class="column no-wrap flex-center">
-                    <q-icon name="terrain" color="primary" size="56px" />
-                    <div class="q-mt-md text-center">
-                    {{ lorem }}
                     </div>
                 </q-carousel-slide>
                 </q-carousel>
@@ -65,7 +58,6 @@ export default {
             slide1: "Start Shopping",
             slide2: "Start Scanning",
             slide3: "View Sustainability Rating",
-            lorem: "INSERT INFO HERE FOR EACH SLIDE AS REQUIRED"
         }
     },
     components: {

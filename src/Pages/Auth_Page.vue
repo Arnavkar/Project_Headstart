@@ -20,11 +20,11 @@
 			</div>
 		<!-- <img src="../assets/Logo.png"/>
 		<q-img src="../assets/Logo.png" native-context-menu alt="Logo" basic style="height: 10px;max-width: 10px;o"> </q-img> -->
-			<div class="curved">
+			<!-- <div class="curved">
 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
 			<path fill="#FFF" fill-opacity="1" d="M0,192L48,197.3C96,203,192,213,288,208C384,203,480,181,576,154.7C672,128,768,96,864,112C960,128,1056,192,1152,224C1248,256,1344,256,1392,256L1440,256L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
 			</svg>
-			</div>
+			</div> -->
 			<div class="q-pa-lg white-block">
 				<q-form>
 					<q-input
@@ -82,6 +82,7 @@
 	</div>
 </template>
 <script>
+	
 	function createLocalDatabase(range){
 		var database = {};
 		if(range.values.length > 0){
@@ -106,11 +107,10 @@
 		}
 	return database
 	}
-	
+
 	import Vue from 'vue'
 	import { mapActions } from "vuex"
 	import { bus } from '../main'
-	
 	export default{
 		name: 'Data',
 		data(){
@@ -122,21 +122,13 @@
 			...mapActions('database',['addDatabase']),
 			login() {
 				this.$gapi.getGapiClient().then((gapi) => {
-					var authorizeButton = document.getElementById('authorize_button');
-					var signoutButton = document.getElementById('signout_button');
 					gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
 					updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
 					
 					function updateSigninStatus(isSignedIn) {
 						console.log(isSignedIn);
 						if (isSignedIn) {
-							authorizeButton.style.display = 'none';
-							signoutButton.style.display = 'block';
 							readData();
-							// writeData();
-						} else {
-							authorizeButton.style.display = 'block';
-							signoutButton.style.display = 'none';
 						}
 						return isSignedIn
 					}
@@ -154,36 +146,11 @@
 					}
 
 					//function initializeScanner(){} = >PREVENT MULTIPLE INITIALIZATIONS OF THE SCANDIT SDK?
-
-					// function writeData() {
-					// 	var button = document.getElementById('submit');
-
-					// 	button.onclick = function() {
-					// 		var val1 = document.getElementById('input').value;
-					// 		logData(val1);
-					// 	}
-					// 	function logData(data) {
-					// 		var values = [
-					// 		[data, data, data, data],
-					// 		];
-					// 		var body = {
-					// 			values: values
-					// 		};
-					// 		gapi.client.sheets.spreadsheets.values.append({
-					// 			spreadsheetId: '1cVb20kWTHXWdOaDn6oaMxMXwXqBHzlpqRDI9UAxtXQk',
-					// 			range: 'Users!A7:E',
-					// 			valueInputOption: "USER_ENTERED",
-					// 			resource: body
-					// 		}).then((response) => {
-					// 			var result = response.result;
-					// 			console.log(`${result.updatedCells} cells updated.`);
-					// 		});
-					// 	}
-					// }
 				}, function(error) {
 					console.log(JSON.stringify(error, null, 2));
 				});
 			},
+
 			handleAuthClick: function () {
 				this.$gapi.login();
 
@@ -218,7 +185,8 @@
 			this.addDatabase(database);
 
 			bus.$on("sign-out", () => {
-			this.handleSignoutClick()
+				this.handleSignoutClick()
+			
 			})
 		},
 	}
