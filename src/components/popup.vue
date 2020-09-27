@@ -1,32 +1,41 @@
 <template>
-	<div class="container">
+	<div>
 		<q-card 
 		class="my-popup">
 			<q-card-section class = "content">
-				<div style="display:flex; flex-direction: column;">
+				<div style="display:flex; flex-direction: column; align-items:center;">
 					<q-img 
 					class="imgstyle"
 					contain 
 					:src = "item.image"/> 
-					<p class=" text-h6 text-dark">$5.00 {{item.price}}</p>
+					<p class=" text-h6 text-dark p-pt-sm">$5.00 {{item.price}}</p>
 				</div>
 				<div class = "q-pl-md" style="display:flex; flex-direction: column;">
 					<span class="text-h4 text-dark">{{item.name}}</span>
 					<q-rating
+					v-if="item.rating > 0"
 					:value="item.rating"
 					max="5"
 					size="7vw"
 					color="grey"
 					:color-selected="ratingColors"
-					icon="eco_border"
+					icon="eco"
 					icon-selected="eco"
 					readonly/>
+
+					<span 
+					class="text-h5 text-dark"
+					v-if="item.rating == 'NA'"
+					>Click on below to submit a request!</span>
 				</div>
+				<q-space/>
+				<q-btn round flat id="close" icon="close" color="primary"  @click="close()" />
 			</q-card-section>
 			<q-card-section class="text">	
 				<!-- <span class="text-h7"> Made in {{item.POM}} </span>
 				<span class = "text-caption"> {{item.additional}} </span> -->
 				<q-btn 
+				v-if="item.rating > 0"
 				color="secondary" 
 				id="prompt"
 				rounded
@@ -35,6 +44,16 @@
 				class="button" 
 				v-on:click="passInfo"/>
 				<q-btn 
+				v-if="item.rating == 'NA'"
+				color="secondary"
+				id="prompt"
+				rounded
+				no-caps
+				label="Request to add this product!"
+				class="button" 
+				v-on:click="passInfo"/>
+				<q-btn 
+				v-if="item.rating > 0"
 				color="secondary" 
 				id="prompt"
 				rounded
@@ -44,6 +63,7 @@
 				v-on:click="passInfo"/>
 				<q-space/>
 				<q-btn 
+				v-if="item.rating > 0"
 				class="button"
 				id="save"
 				flat
@@ -54,11 +74,6 @@
 				v-bind:icon="log(isFavorite)"
 				size="20px"/>
 			</q-card-section>
-			<q-item-section side>
-					<q-card-actions>
-						
-					</q-card-actions>
-			</q-item-section> 
 		</q-card>
 		<infopage
 		:item= "item"/>
@@ -67,6 +82,7 @@
 <script>
 import infopage from '../components/ItemInfo.vue'
 import { bus } from '../main'
+
 export default {
 	name:"pop",
 	props:["item"],
@@ -91,6 +107,9 @@ export default {
 		},
 		passInfo(){
 			bus.$emit("pass-info")
+		},
+		close(){
+			bus.$emit("close")
 		}
 	}
 }
@@ -109,11 +128,12 @@ export default {
 .content{
 	width:100vw;
 	display:flex;
+	align-items: top;
 }
 
 .text{
-	margin-top:-1vh;
 	display:flex;
+	margin-top:-3vh;
 	height:5vh;
 	max-width:95vw;
 	align-items:center;
@@ -122,8 +142,8 @@ export default {
 .imgstyle{
 	position: relative;
 	border-radius:200px;
-	height:50px; 
-	width:50px; 
+	height:70px; 
+	width:70px; 
 	background-color:#C3EFDB;
 }
 
@@ -139,6 +159,11 @@ export default {
 	border-radius:15px;
 	width:45px;
 	height:45px;
+}
+
+#close{
+	width:40px;
+	height:40px;
 }
 
 #prompt{

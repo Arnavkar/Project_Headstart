@@ -46,7 +46,7 @@
     data(){
       return{
         tab:'one',
-        show:true, //MAKE FALSE LATER
+        show:false,
         currentItem:{}
       }
     },
@@ -92,9 +92,15 @@
           setTimeout(function(){bus.$emit('refresh')}, 500)
         }
       })
+
       bus.$on('refresh',() => {
         this.show = true;
       })
+
+      bus.$on('close',() => {
+        this.show = false;
+      })
+
     }
   }
 </script>

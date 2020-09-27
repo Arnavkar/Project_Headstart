@@ -12,38 +12,36 @@
         class="q-mt-sm q-pa-md absolute-bottom my-form"
         @submit="onSubmit"
         @reset="onReset">
-            <div>
-                <p class="text-h6"> 
+            <div style="display:flex; justify-content:center;">
+                <div class="text-h6" style="flex-grow:5;"> 
                     <q-icon name="announcement" 
-                    class ="text-secondary"
+                    class ="icon"
                     style="font-size:2em"/>
                     Product Name 
-                </p>
-                <p>
                     <q-input 
                     filled 
+                    name="name"
                     v-model="name"
                     label="Product Name"
                     lazy-rules
                     :rules="[ val => val&&val.length > 0 || 'Please type a product name']"/>
-                </p>
-            </div>
-            <div>
-                <p class="text-h6"> 
+                </div>
+                <div class="text-h6" style="flex-grow:1; margin-left:5px"> 
                     <q-icon name="add_a_photo" 
-                    class ="text-secondary"
+                    class ="icon"
                     style="font-size:2em"/>
-                    Attach a product photo
-                </p>
-                <p>
-                <q-file outlined v-model="input">
-                    <template v-slot:append>
-                        <q-icon 
-                        name="attach_file"
-                        class="rotate-45" />
-                    </template>
-                </q-file>
-                </p>
+                    Photo
+                    <q-file 
+                    outlined 
+                    name="photo"
+                    v-model="photo">
+                        <template v-slot:append>
+                            <q-icon 
+                            name="attach_file"
+                            class="rotate-45" />
+                        </template>
+                    </q-file>
+                </div>
             </div>
             <div>
                 <p class="text-h6 q-pt-md"> 
@@ -131,17 +129,23 @@ export default {
 
 <style scoped>
 .my-form{
-    height:89%;
+    height:70vh;
     z-index:1000;
     background-color:white;
     border-radius: 30px 30px 0px 0px;
 }
 
 .background{
-	width: 102%;
-	z-index: -100;
+	z-index: -1000;
 	opacity: 80%;
+    max-height:750px;
+    width:100vw;
 }
+
+.icon{
+    color:#41B883
+}
+
 
 
 
