@@ -1,8 +1,7 @@
 <template>
-	<div style="position: absolute; height: 100%; width: 100%;">  
-		<!--help i want to change the colour to light nstead of primary but it doesn't show-->
+	<div class = "absolute-top background">  
 		<!--  START DESIGN OF LOGIN PAGE HERE -->
-			<img src="../assets/bg1.png" class="background absolute-top"/>
+			<!-- <img src="../assets/bg1.png" class="background absolute-top"/> -->
 			<div class="q-ma-md">
 				<q-btn 
 				flat
@@ -13,63 +12,25 @@
 				color="dark" 
 				size="20px">
 				</q-btn>
-				<div class="q-px-xl q-pt-xl text-h3 text-weight-medium">Welcome</div>
+				<!-- <div class="q-px-xl q-pt-xl text-h3 text-weight-medium">Welcome</div>
 				<div class="q-px-xl text-h3 text-weight-medium">Back</div>
-				<div class="q-px-xl q-pt-lg text-subtitle1">We just need your email to get you back in</div>
-				<br>
+				<div class="q-px-xl q-pt-lg text-subtitle1">We just need your email to get you back in</div> -->
+				<!-- <br> -->
 			</div>
-		<!-- <img src="../assets/Logo.png"/>
-		<q-img src="../assets/Logo.png" native-context-menu alt="Logo" basic style="height: 10px;max-width: 10px;o"> </q-img> -->
-			<div class="curved">
+			<!-- <div class="curved">
 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
 			<path fill="#FFF" fill-opacity="1" d="M0,192L48,197.3C96,203,192,213,288,208C384,203,480,181,576,154.7C672,128,768,96,864,112C960,128,1056,192,1152,224C1248,256,1344,256,1392,256L1440,256L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
 			</svg>
-			</div>
-			<div class="q-pa-lg white-block">
-				<q-form>
-					<q-input
-						filled
-						outlined
-						color="primary"
-						v-model="text"
-						label="Email"
-                        style="padding-bottom:15px;"
-					>
-					<template v-slot:before>
-					<q-icon name="mail" color="primary"/>
-					</template>
-					<!-- when email is valid -->
-					<q-avatar>
-					<q-icon name="done" color="primary"/>
-					</q-avatar>
-					<!--  -->
-					</q-input>
-				</q-form>
-                <div>
+			</div> -->
+			<div class="q-pa-lg">
+                <div class= "absolute-bottom content">
                     <q-btn 
                     :loading="loading1" 
-                    color="white" 
                     text-color="dark"
                     @click="simulateProgress(1)" 
                     v-on:click="handleAuthClick" 
                     label="Login" 
-                    class = "q-pa-m q-mt-lg fixed-bottom login"
-                    style="width:100%;"/>
-                
-                    <text-caption class="q-pa-lg or">
-                        <hr>
-                        or
-                        <hr>
-                    </text-caption>
-
-                    <q-btn :loading="loading1" 
-                    color="first" 
-                    @click="simulateProgress(1)" 
-                    v-on:click="handleAuthClick" 
-                    label="Sign Up" 
-                    text-color="dark"
-                    class = "q-pa-m fixed-bottom login"
-                    style="width: 100%"/>
+                    class = "q-pa-m q-mt-lg fixed-bottom login"/>
 				</div>
 			</div>
 		<!--  END DESIGN OF LOGIN PAGE HERE -->
@@ -150,7 +111,7 @@
 				});
 			},
 
-			handleAuthClick: function () {
+			handleAuthClick() {
 				this.$gapi.login();
 
 				setTimeout(() => {
@@ -159,7 +120,8 @@
 
 				this.isSignedIn;
 			},
-			handleSignoutClick: function () {
+			
+			handleSignoutClick(){
 				this.$gapi.logout()
 
 				setTimeout(() => {
@@ -167,6 +129,10 @@
 				}, 2000)
 
 				this.isSignedIn;
+			},
+
+			goBack(){
+				this.$router.go(-1)
 			},
 			simulateProgress (number) {
 				// we set loading state
@@ -192,15 +158,22 @@
 </script> 
 
 <style scoped>
-#app {
-	justify-content: space-between;
+
+.background{
+	background-image:url("../assets/welcomeBack.svg" );
+    background-size:100vw auto;
+    background-repeat: no-repeat;
+	width:100vw;
+    height:100vh;
 }
 .login{
-	width:250px;
+	width:90vw;
 	height:50px;
 	font-size:20px;
-	border-radius:30px;
+	border-radius:10px;
+	margin-bottom:40px;
 	position:relative;
+	background-color:#C3EFDB;
 }
 hr{
    display:inline-block;
@@ -216,7 +189,7 @@ hr{
 .white-block{
 	background-color: white; 
 	position: absolute;
-	top: 50vh;
+	top: 90vh;
 	width: 100%;
 	height: 100%;
 }
@@ -234,11 +207,12 @@ hr{
 	height: 50vh;
 }
 
-.background{
-	height: auto;
-	width: 100%;
-	z-index: -100;
-	opacity: 80%;
+.content{
+    display:flex;
+    flex-direction: column;
+    align-items:center;
 }
+
+
 
 </style>

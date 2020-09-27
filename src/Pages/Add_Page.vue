@@ -14,8 +14,7 @@
                 <div class="text-h6" style="flex-grow:5;"> 
                     <p> <q-icon 
                     name="mdi-barcode-scan" 
-                    class ="icon" 
-                    style="font-size:2em"/>
+                    class ="icon" />
                     Barcode Number</p>
                     <q-input 
                     filled 
@@ -27,8 +26,7 @@
                 </div>
                 <div class="text-h6" style="width:25vw; margin-left:5px"> 
                     <p><q-icon name="add_a_photo" 
-                    class ="icon"
-                    style="font-size:2em"/>
+                    class ="icon"/>
                     Photo</p>
                     <q-file 
                     outlined 
@@ -43,8 +41,7 @@
                 <div class="text-h6" style="flex-grow:5;"> 
                     <p> <q-icon 
                     name="announcement" 
-                    class ="icon" 
-                    style="font-size:2em"/>
+                    class ="icon" />
                     Product name</p>
                     <q-input 
                     filled 
@@ -56,8 +53,7 @@
                 </div>
                 <div class="text-h6" style="width:25vw; margin-left:5px"> 
                     <p><q-icon name="money" 
-                    class ="icon"
-                    style="font-size:2em"/>
+                    class ="icon"/>
                     Price</p>
                     <q-input 
                     outlined 
@@ -70,8 +66,7 @@
             <div class = "text-h6">
                 <p><q-icon 
                 name="shopping" 
-                class ="icon"
-                style="font-size:2em"/>
+                class ="icon"/>
                 Category</p>
                 <q-select
                 filled
@@ -87,8 +82,7 @@
                     <q-icon 
                     name="eco" 
                     clickable
-                    class ="icon"
-                    style="font-size:2em"/>
+                    class ="icon"/>
                     Place of manufacture
                 </p>
                 <div class = "select">
@@ -105,8 +99,7 @@
                     <q-icon 
                     name="eco" 
                     clickable
-                    class ="icon"
-                    style="font-size:2em"/>
+                    class ="icon"/>
                     Packaging
                 </p>
                 <div class= "select" >
@@ -124,8 +117,7 @@
                     <q-icon 
                     name="eco" 
                     clickable
-                    class ="icon"
-                    style="font-size:2em"/>
+                    class ="icon"/>
                     Ingredients
                 </p>
                 <div class = "select">
@@ -314,12 +306,6 @@ methods: {
     border-radius: 30px 30px 0px 0px;
 }
 
-.background{
-	height: auto;
-	width: 100%;
-	z-index: -100;
-	opacity: 80%;
-}
 
 .icon{
     color:#41B883

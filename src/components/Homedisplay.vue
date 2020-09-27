@@ -17,12 +17,12 @@
 <style scoped>
 
 .plant_img{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-	height: 50vh;
-	width: 90vw;
-    border-radius:30px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 50vh;
+  width: 90vw;
+  border-radius:30px;
 }
 
 </style>

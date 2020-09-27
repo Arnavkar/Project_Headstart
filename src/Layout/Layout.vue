@@ -94,12 +94,6 @@ export default {
           activeClass: "white-oval"
         },
         {
-          icon: "list",
-          label:"Data",
-          to: "/b/data",
-          activeClass: "white-oval"
-        },
-        {
           icon: "favorite",
           label:"saved",
           to: "/b/history",

@@ -67,22 +67,7 @@
                     label="Sign Up" 
                     class = "q-pa-m q-mt-lg fixed-bottom login"
                     style="width:100%;"/>
-                
 
-                    <text-caption class="q-pa-sm or">
-                        <hr>
-                        or
-                        <hr>
-                    </text-caption>
-
-                    <q-btn :loading="loading1" 
-                    color="first" 
-                    @click="simulateProgress(1)" 
-                    v-on:click="handleAuthClick" 
-                    label="Login" 
-                    text-color="dark"
-                    class = " fixed-bottom login"
-                    style="width: 100%"/>
 				</div>
 			</div>
 		<!--  END DESIGN OF LOGIN PAGE HERE -->
@@ -200,7 +185,7 @@
 				this.$gapi.login();
 
 				setTimeout(() => {
-				this.$router.push('home')
+				this.$router.push('/b/home')
 				}, 2000)
 
 				this.isSignedIn;
@@ -261,15 +246,15 @@ hr{
 .white-block{
 	background-color: white; 
 	position: absolute;
-	top: 50vh;
+	top: 70vh;
 	width: 100%;
 	height: 100%;
 }
 
 .curved{
 	background: transparent;
-	position: relative;
-	bottom:25vh;
+	position: absolute;
+	top:43vh;
 	z-index: -1;
 }
 
