@@ -56,7 +56,7 @@
 </template>
 
 <script>
-import Homepage from '../components/Homepage.vue';
+import Homepage from '../components/Homedisplay.vue';
 
 export default {
     data () {

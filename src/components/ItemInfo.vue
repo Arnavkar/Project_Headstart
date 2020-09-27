@@ -10,8 +10,8 @@
           contain
           class = "q-mr-md"
           :src="item.image"/>
-          <h4>{{item.name}}</h4>
-      <!-- <button class = "item"> Back </button> -->
+          <h4> {{item.name}} </h4>
+          <!-- <button class = "item"> Back </button> -->
           </span>
           <!-- <p>Category: {{item.cat}}</p> -->
           <p

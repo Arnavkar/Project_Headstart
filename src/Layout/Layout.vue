@@ -170,6 +170,11 @@ export default {
   border-radius:20px 20px 0px 0px;
 }
 
+a.q-tab {
+  transition: all 0.3s ease;
+
+}
+
 .view-enter-active, .view-leave-active{
   transition: opacity 0.5s ease-in-out, transform 0.5s ease;
 }
@@ -220,5 +225,6 @@ a.q-tab{
 .nav_bar{
   padding: 1vw;
 }
+
 
 </style>

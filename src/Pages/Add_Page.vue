@@ -15,7 +15,7 @@
             <div style="display:flex; justify-content:center;">
                 <div class="text-h6" style="flex-grow:5;"> 
                     <q-icon name="announcement" 
-                    class ="text-secondary"
+                    class ="icon"
                     style="font-size:2em"/>
                     Product Name 
                     <q-input 
@@ -28,13 +28,13 @@
                 </div>
                 <div class="text-h6" style="flex-grow:1; margin-left:5px"> 
                     <q-icon name="add_a_photo" 
-                    class ="text-secondary"
+                    class ="icon"
                     style="font-size:2em"/>
                     Photo
                     <q-file 
                     outlined 
-                    
-                    v-model="input">
+                    name="photo"
+                    v-model="photo">
                         <template v-slot:append>
                             <q-icon 
                             name="attach_file"
@@ -42,6 +42,21 @@
                         </template>
                     </q-file>
                 </div>
+            </div>
+            <div class = "text-h6">
+                <q-icon 
+                name="information" 
+                class ="icon"
+                style="font-size:2em"/>
+                Category 
+                <q-select
+                filled
+                clearable
+                name="category"
+                v-model="category"
+                label="Category"
+                :options = "categories"
+                />
             </div>
             <div class="q-pt-sm">
                 <span class="text-h6 q-pt-md"> 
@@ -52,14 +67,14 @@
                     style="font-size:2em"/>
                     Place of manufacture
                 </span>
-                <span>
+                <div style="display:flex; justify-content:center;">
                     <q-option-group
                     name="location"
                     v-model="location"
                     :options="options1"
                     inline
                     color="green"/>
-                </span>
+                </div>
             </div>
             <div class="q-pt-sm">
                 <span class="text-h6 q-pt-md"> 
@@ -70,7 +85,7 @@
                     style="font-size:2em"/>
                     Packaging
                 </span>
-                <span>
+                <div>
                     <q-option-group
                     name="packaging"
                     v-model="packaging"
@@ -78,7 +93,7 @@
                     inline
                     color="green"
                     type="checkbox"/>
-                </span>
+                </div>
             </div>
             <div class="q-pt-sm">
                 <span class="text-h6 q-pt-md"> 
@@ -129,8 +144,9 @@ export default {
   data () {
     return {
         name: null,
+        category: null,
         other: null,
-        input:null,
+        photo:null,
         location:'m1',
         packaging:[],
         ingredients:[],
@@ -140,51 +156,70 @@ export default {
             value:'m1',
             },
             {
-            label:"In SEA",
+            label:"In Asia",
             value:'m2'
             },
             {
-            label:"Outside of SEA",
+            label:"Outside of Asia",
             value:'m3'
             },
         ],
         options2:[
             {
             label:"Sustainably Sourced",
-            value:'p1'
+            value:"Sustainably Sourced",
+            falseValue:true
             },
             {
-            label:"Biodegradeable",
-            value:'p2'
+            label:"Biodegradable",
+            value:"Biodegradable"
             },
             {
             label:"Made with Recyclable material",
-            value:"p3"
+            value:"Made with Recyclable material"
+            },
+            {
+            label:"Recyclable",
+            value:"Recyclable"
             },
         ],
         options3:[
             {
             label:"Organic",
-            value:'i1'
+            value:"Organic"
             },
             {
             label:"Plant-based alternatives",
-            value:'i2'
+            value:"Plant-based alternatives"
             },
             {
             label:"Cruelty Free",
-            value:'i3'
+            value:"Cruelty Free"
             },
             {
             label:"Carbon-Certification",
-            value:'i4'
+            value:"Carbon-Certification"
+            },
+        ],
+        categories:[
+            {
+            label:"Skin Care & Hygiene",
+            value:"Skin Care & Hygiene"
+            },
+            {
+            label:"Food & Beverage",
+            value:"Food & Beverage"
+            },
+            {
+            label:"Cleaning Products",
+            value:"Cleaning Products"
             },
         ],
         submitResult:[]
     }
-  },
+},
 
-  methods: {
+methods: {
     onSubmit (evt) {
         this.$q.notify({
           color: 'green-4',
@@ -196,8 +231,6 @@ export default {
         const formData = new FormData(evt.target)
         const submitResult =[]
         const names=[]
-
-
         for (const [ name ,value ] of formData.entries()) {
                 names.push(name)
                 submitResult.push({
@@ -205,9 +238,8 @@ export default {
             })
         }
         this.submitResult = submitResult
-        console.log(submitResult)
         localStorage.setItem('form',JSON.stringify(this.submitResult))
-        var form = JSON.parse(localStorage.getItem('form')) //cannot retrieve submitresult directly
+        var form = JSON.parse(JSON.stringify(this.submitResult)) //cannot retrieve submitresult directly
         var payload =[]
         for (var i=0;i<form.length;i++){
                 var val = Object.values(form[i]).toString()

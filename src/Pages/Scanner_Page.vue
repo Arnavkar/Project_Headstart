@@ -46,7 +46,7 @@
     data(){
       return{
         tab:'one',
-        show:false,
+        show:true, //MAKE FALSE LATER
         currentItem:{}
       }
     },

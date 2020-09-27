@@ -20,8 +20,8 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-	  height: 50vh;
-	  width: 90vw;
+	height: 50vh;
+	width: 90vw;
     border-radius:30px;
 }
 
