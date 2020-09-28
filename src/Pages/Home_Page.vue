@@ -2,8 +2,8 @@
     <div>
     <Homepage
     UserName = 'Jerry'/>
-    <q-page padding>
-        <div class="q-pa-md q-gutter-sm">
+    <q-page style="min-height:0px;">
+        <div class="q-pa-md">
             <q-dialog v-model="carousel">
                 <q-carousel
                 transition-prev="slide-right"
@@ -45,12 +45,9 @@
                     {{ slide4 }}
                     </div>
                 </q-carousel-slide> -->
-
                 </q-carousel>
             </q-dialog>
         </div>
-        <div> 
-	</div>
     </q-page>
     </div>
 </template>

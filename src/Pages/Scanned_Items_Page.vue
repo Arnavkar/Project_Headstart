@@ -1,6 +1,6 @@
 <template>
-	<q-page class="q-pa-sm">
-		<h2 class="text-secondary q-mt-none">Saved Items</h2>
+	<q-page class="q-px-lg">
+		<div class="q-py-md text-h4 text-dark text-weight-medium">Saved Items</div>
 		<q-list>
 			<ScannedItem
 			v-for="(item,key) in items" 

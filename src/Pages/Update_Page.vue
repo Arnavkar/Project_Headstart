@@ -5,10 +5,10 @@
     </portal>
     <q-page>
     <div>
-        <p class=" text-h4 q-pa-sm" style="padding-top:1vh; color:white;"> Tell us what we don't know!</p>
+        <p class=" text-h6 q-px-md" style="position: absolute;top:15vh; color:white;"> Tell us what we don't know!</p>
         <q-form
         flat
-        class="q-mt-sm q-pa-md absolute-bottom my-form"
+        class="q-pa-md absolute-bottom my-form"
         @submit="onSubmit">
             <div style="display:flex;">
                 <div class="text-h6" style="flex-grow:5;"> 
@@ -53,7 +53,7 @@
                 </div>
             </div>
             <div>
-                <p class="text-h6 q-pt-md"> 
+                <p class="text-h6"> 
                     <q-icon 
                     name="eco" 
                     class = "icon"
@@ -70,11 +70,11 @@
             </div>
             <div style="display:flex; justify-content:center">
                 <q-btn 
-                rounded
-                class = "item q-mb-lg"
+                class = "item q-mt-md"
                 icon="send"
                 label="Submit" 
-                type="submit" />
+                type="submit" 
+                color="primary"/>
             </div>
         </q-form>
     </div>
@@ -137,6 +137,7 @@ export default {
   transition-duration: 0.2s;
   cursor: pointer;
   border-radius: 7px;
+  border-radius: 20px;
 }
 .item:hover {
   background: #26A69A;

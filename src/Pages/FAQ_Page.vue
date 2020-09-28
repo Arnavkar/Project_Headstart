@@ -1,12 +1,12 @@
 <template>
     <q-page>
-        <div class="q-pa-sm q-ml-xl">
-            <h2 class="text-dark q-mt-md q-mb-sm">FAQ</h2>
-            <p class="text-dark text-h6 q-mb-md"> We're here to answer your questions! </p>
+        <div class="q-pa-sm q-ml-lg q-mr-lg">
+            <h2 class="text-dark q-mt-sm q-mb-sm">FAQ</h2>
+            <p class="text-dark text-subtitle2"> We're here to answer your questions! </p>
         </div>
 
-        <div class="list q-pl-xl q-pr-xl">
-            <q-list class="rounded-borders text-dark text-h5">
+        <div class="list q-pl-lg q-pr-lg">
+            <q-list class="rounded-borders text-dark text-subtitle1">
                 <q-expansion-item
                     group="all"
                     expand-separator
@@ -16,7 +16,7 @@
                     class="q-mb-md dropdown"
                 >
                     <q-card class="info">
-                    <q-card-section square class="text-body1 text-secondary">
+                    <q-card-section square class="text-body2 text-secondary">
                     We calculate the rating based on the number of criteria that a product fufills.
                     </q-card-section>
                     </q-card>
@@ -31,7 +31,7 @@
                     class="q-mb-md dropdown"
                 >
                     <q-card class="info">
-                    <q-card-section class="text-body1 text-secondary">
+                    <q-card-section class="text-body2 text-secondary">
                         We source our information from reports made by independent organisations and from the information on the company's website.
                     </q-card-section>
                     </q-card>
@@ -46,7 +46,7 @@
                     class="q-mb-md dropdown"
                 >
                     <q-card class="info">
-                    <q-card-section class="text-body1 text-secondary">
+                    <q-card-section class="text-body2 text-secondary">
                         We are currently working on expanding our database to include more items. To speed up the process, you can submit a product request at the sidebar.
                     </q-card-section>
                     </q-card>
@@ -61,7 +61,7 @@
                     class="q-mb-md dropdown"
                 >
                     <q-card class="info">
-                    <q-card-section class="text-body1 text-secondary">
+                    <q-card-section class="text-body2 text-secondary">
                         We know that companies can sometimes improve a product. If you noticed that the information shown on our app is no longer true, please submit a request to update information at the sidebar. We will work to update the information as soon as possible.
                     </q-card-section>
                     </q-card>
@@ -76,7 +76,7 @@
                     class="q-mb-md dropdown"
                 >
                     <q-card class="info">
-                    <q-card-section class="text-body1 text-secondary">
+                    <q-card-section class="text-body2 text-secondary">
                         Your plant can grow faster when you make more product request and scan products that are more highly rated.
                     </q-card-section>
                     </q-card>
@@ -91,7 +91,7 @@
                     class="q-mb-md dropdown"
                 >
                     <q-card class="info">
-                    <q-card-section class="text-body1 text-secondary">
+                    <q-card-section class="text-body2 text-secondary">
                         You can save an item when you tap the heart button that shows up after you scan a product. You can refer to your saved items by clicking the 'Saved' button on the navigation bar.
                     </q-card-section>
                     </q-card>
@@ -106,7 +106,7 @@
                     class="q-mb-md dropdown"
                 >
                     <q-card class="info">
-                    <q-card-section class="text-body1 text-secondary bg-transparent">
+                    <q-card-section class="text-body2 text-secondary bg-transparent">
                         We are constantly working to include more factors like the toxicity of certain products and ethical practices. Do bear with us while we work on that.
                     </q-card-section>
                     </q-card>
@@ -133,29 +133,25 @@ export default {
 }
 </script>
 <style>
-
 .list{
     width:100%;
 }
-
 .dropdown{
     /* background-color: #c3efdb4f; */
     border-radius: 15px;
     border: 0px solid #C3EFDB;
-    box-shadow: 0 2px 4px 0 rgba(76, 199, 96, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 2px 4px 0 rgba(65, 184, 131, 0.4), 0 3px 10px 0 rgba(65, 184, 131, 0.19);
 }
-
 .info{
     /* border-top: 1px solid lightgray; */
-    background-image: linear-gradient(white,#C3EFDB);
-    padding-left:2.5em;
+    background-image: linear-gradient(white,#C3EFDB) !important;
+    padding-left:1em !important;
+    border-radius: 0 0 15px 15px !important;
 }
-
 .activeclass{
     background-color:black ;
     padding: 100px;
 }
-
 .q-separator--horizontal {
     display: block;
     height: 0px;

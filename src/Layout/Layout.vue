@@ -157,7 +157,7 @@ export default {
 }
 </script>
 
-<style lang="stylus" >
+<style lang="stylus"> 
 @import '~quasar-variables-styl'
 
 .q-footer{
