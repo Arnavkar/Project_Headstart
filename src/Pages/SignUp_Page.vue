@@ -13,26 +13,25 @@
 				color="dark" 
 				size="20px">
 				</q-btn>
-				<div class="q-px-xl q-pt-xl text-h3 text-weight-medium">Create</div>
-				<div class="q-px-xl text-h3 text-weight-medium">Account</div>
-				<div class="q-px-xl q-pt-lg text-subtitle1">The Earth is what we all have in common.</div>
-				<div class="q-px-xl text-subtitle1">-Wendell Berry</div>
-				<br>
+				<div class="textblock">
+					<div class="q-px-xl text-h4 text-dark text-weight-medium">Create</div>
+					<div class="q-px-xl text-h4 text-dark text-weight-medium">Account</div>
+					<div class="q-px-xl q-pt-lg text-dark text-body2">The Earth is what we all have in common.</div>
+					<div class="q-px-xl text-dark text-body2">-Wendell Berry</div>
+				</div>
 			</div>
 		<!-- <img src="../assets/Logo.png"/>
 		<q-img src="../assets/Logo.png" native-context-menu alt="Logo" basic style="height: 10px;max-width: 10px;o"> </q-img> -->
-			<div class="curved">
-			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+			<svg class="curved" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
 			<path fill="#FFF" fill-opacity="1" d="M0,192L80,192C160,192,320,192,480,170.7C640,149,800,107,960,96C1120,85,1280,107,1360,117.3L1440,128L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
 			</svg>
-			</div>
 			<div class="q-pa-lg white-block">
 				<q-form>
 					<q-input
 						filled
 						outlined
 						color="primary"
-						v-model="text"
+						v-model="email"
 						label="Email"
                         style="padding-bottom:15px;"
 					>
@@ -40,16 +39,16 @@
 					<q-icon name="mail" color="primary"/>
 					</template>
 					<!-- when email is valid -->
-					<q-avatar>
+					<!-- <q-avatar>
 					<q-icon name="done" color="primary"/>
-					</q-avatar>
+					</q-avatar> -->
 					<!--  -->
 					</q-input>
                     <q-input
 						filled
 						outlined
-						color="primary"
 						v-model="text"
+						color="primary"
 						label="Name"
 					>
 					<template v-slot:before>
@@ -60,12 +59,12 @@
                 <div>
                     <q-btn 
                     :loading="loading1" 
-                    color="white" 
+                    color="positive" 
                     text-color="dark"
                     @click="simulateProgress(1)" 
                     v-on:click="handleAuthClick" 
                     label="Sign Up" 
-                    class = "q-pa-m q-mt-lg fixed-bottom login"
+                    class = "q-pa-m q-mt-xl fixed-bottom login"
                     style="width:100%;"/>
 
 				</div>
@@ -112,7 +111,9 @@
 		name: 'Data',
 		data(){
 			return{
-				loading1:false
+				loading1:false,
+				email: '',
+				text:''
 			}
 		},
 		methods: {
@@ -231,6 +232,7 @@
 	font-size:20px;
 	border-radius:15px;
 	position:relative;
+    box-shadow: 0 2px 4px 0 rgba(65, 184, 131, 0.4), 0 3px 10px 0 rgba(65, 184, 131, 0.19);
 }
 hr{
    display:inline-block;
@@ -243,32 +245,33 @@ hr{
   align-items: center;
   width: 100%;
 }
+
 .white-block{
 	background-color: white; 
 	position: absolute;
-	top: 70vh;
+	bottom: 0vh;
 	width: 100%;
-	height: 100%;
+	height: 40%;
 }
 
 .curved{
 	background: transparent;
 	position: absolute;
-	top:43vh;
+	bottom:40%;
 	z-index: -1;
-}
-
-.curved svg{
-	display: block;
-	width: 100vw;
-	height: 50vh;
+	margin:-1;
 }
 
 .background{
-	height: auto;
-	width: 100%;
+	height: 100vh;
+	width: 100vw;
 	z-index: -100;
 	opacity: 80%;
+}
+
+.textblock{
+	position: absolute;
+	top: 20vh;
 }
 
 </style>

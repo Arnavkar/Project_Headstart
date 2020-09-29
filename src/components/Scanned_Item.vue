@@ -53,7 +53,7 @@ export default{
 		...mapActions('items',['deleteItem']),
 		promptToDelete(id){
 			this.$q.dialog({
-				title:'Confirm',
+				title:'Confirmation',
 				message: "Would you like to delete this item?",
 				ok:{
 					color:'primary'
@@ -95,5 +95,6 @@ export default{
 	background-color: #C3EFDB;
 	border-radius: 100px ;
 } */
+
 
 </style>

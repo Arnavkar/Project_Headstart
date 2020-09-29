@@ -1,7 +1,7 @@
 <template>
 	<div class = "absolute-top background">  
 		<!--  START DESIGN OF LOGIN PAGE HERE -->
-			<!-- <img src="../assets/bg1.png" class="background absolute-top"/> -->
+			<img src="../assets/bg1.png" class="background absolute-top"/>
 			<div class="q-ma-md">
 				<q-btn 
 				flat
@@ -12,17 +12,16 @@
 				color="dark" 
 				size="20px">
 				</q-btn>
-				<!-- <div class="q-px-xl q-pt-xl text-h3 text-weight-medium">Welcome</div>
-				<div class="q-px-xl text-h3 text-weight-medium">Back</div>
-				<div class="q-px-xl q-pt-lg text-subtitle1">We just need your email to get you back in</div> -->
-				<!-- <br> -->
 			</div>
-			<!-- <div class="curved">
-			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+			<div class="textblock">
+			<div class="q-px-xl text-h4 text-dark text-weight-medium">Welcome</div>
+			<div class="q-px-xl text-h4 text-dark text-weight-medium">Back</div>
+			<div class="q-px-xl q-pt-md text-dark text-body2">We just need your email to get you back in</div>
+			</div>
+			<svg class="curved" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
 			<path fill="#FFF" fill-opacity="1" d="M0,192L48,197.3C96,203,192,213,288,208C384,203,480,181,576,154.7C672,128,768,96,864,112C960,128,1056,192,1152,224C1248,256,1344,256,1392,256L1440,256L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
 			</svg>
-			</div> -->
-			<div class="q-pa-lg">
+			<div class="q-pa-lg white-block">
                 <div class= "absolute-bottom content">
                     <q-btn 
                     :loading="loading1" 
@@ -160,11 +159,12 @@
 <style scoped>
 
 .background{
-	background-image:url("../assets/welcomeBack.svg" );
+	/* background-image:url("../assets/welcomeBack.svg" ); */
     background-size:100vw auto;
     background-repeat: no-repeat;
 	width:100vw;
     height:100vh;
+	z-index: -10;
 }
 .login{
 	width:90vw;
@@ -189,22 +189,17 @@ hr{
 .white-block{
 	background-color: white; 
 	position: absolute;
-	top: 90vh;
+	bottom: 0vh;
 	width: 100%;
-	height: 100%;
+	height: 50%;
 }
 
 .curved{
 	background: transparent;
-	position: relative;
-	bottom:22vh;
+	position: absolute;
+	bottom:50%;
 	z-index: -1;
-}
-
-.curved svg{
-	display: block;
-	width: 100vw;
-	height: 50vh;
+	margin:-1;
 }
 
 .content{
@@ -213,6 +208,9 @@ hr{
     align-items:center;
 }
 
-
+.textblock{
+	position: absolute;
+	top: 15vh;
+}
 
 </style>

@@ -111,6 +111,23 @@
                     </q-card-section>
                     </q-card>
                 </q-expansion-item>
+
+                <q-expansion-item
+                    group="all"
+                    expand-separator
+                    dense-toggle
+                    icon="mdi-tree"
+                    label="I feel that some of the current criteria is not an indicator of sustainability"
+                    class="q-mb-md dropdown"
+                >
+                    <q-card class="info">
+                    <q-card-section class="text-body2 text-secondary bg-transparent">
+                        While we understand that the criteria for a sustainable product is a case-by-case basis and debatable, 
+                        we would like to give users a rough gauge of sustainability based on general criterions.
+                    </q-card-section>
+                    </q-card>
+                </q-expansion-item>
+
                 <!-- <q-expansion-item icon="assessment" label="Disabled" disable>
                     <q-card>
                     <q-card-section>
