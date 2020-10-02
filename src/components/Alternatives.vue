@@ -1,55 +1,27 @@
 <template>
-  <q-page padding class = "q-pa-md q-gutter-sm">
-    <q-dialog 
-    v-model = "card">
-      <q-card class = "container q-pa-md">
-          <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" />
-          <span class="field-data">
-          <q-img 
-          id="itemimg"
-          contain
-          class = "q-mr-md"
-          :src="item.image"/>
-          <h4> {{item.name}} </h4>
-          <!-- <button class = "item"> Back </button> -->
-          </span>
-          <!-- <p>Category: {{item.cat}}</p> -->
-          <p
-          class="text-h5">Place of Manufacture: {{item.POM}}</p>
-          <!-- <p class="Stars" style="--rating: 3.5;" :border-width="2">Rating:</p> -->
-          <q-rating
-          :value="item.rating"
-          max="5"
-          size="3em"
-          color="grey"
-          :color-selected="ratingColors"
-          icon="star_border"
-          icon-selected="star"
-          readonly/>
-          <hr style="height:2px;border-width:0;background-color:lightgray" />
-          <p
-          class = "text-h6">Pros:</p>
-          <p>This is alternatives page</p>
-          <br>
-          <p
-          class = "text-h6">Cons:</p>
-          <p>Con</p>  
-          <!-- <button class="item save">Save item</button> -->
-          <q-btn 
-          elevated 
-          label="Product rating request" 
-          icon="info"
-          class = "q-ma-md item" />
-
-          <q-btn 
-          elevated 
-          icon="announcement"
-          label="Report Outdated Information" 
-          class = "q-ma-md item" />
-
-      </q-card>
-    </q-dialog>
-  </q-page>
+  <div>
+    <div class="text-h5">Alternatives</div>
+		<q-card 
+		class="my-card"
+		bordered
+		v-ripple>
+      <q-card-section horizontal>
+        <q-img 
+        class="col imgstyle"
+        contain
+        :src = "item.image"
+        />
+        <q-card-section class="q-pa-md bg-white">
+          <div class="text-h6 q-mx-md">{{item.name}}</div>
+          <!-- <div class="text-subtitle1">{{id}}</div>
+          <div class="text-subtitle2">Made by {{item.manufacturer}}, manufactured in {{item.POM}}</div> -->
+          <div class="text-subtitle1  q-mx-md">Rating: {{item.rating}} / 5</div>
+        </q-card-section>
+        <q-space/>
+      </q-card-section>
+		</q-card>
+		<q-separator spaced color="white" />
+	</div>
 </template>
 
 <script>
@@ -64,7 +36,7 @@ export default {
     }
   },
   mounted(){
-    bus.$on("show-alt", () => {
+    bus.$on("pass-info2", () => {
       this.card=true;
     }) 
   }

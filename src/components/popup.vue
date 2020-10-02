@@ -11,7 +11,7 @@
 					<p class=" text-body1 text-dark p-pt-sm">$5.00 {{item.price}}</p>
 				</div>
 				<div class = "q-pl-md" style="display:flex; flex-direction: column;">
-					<span class="text-h5 text-weight-bold text-dark">{{item.name}}</span>
+					<span class="text-h text-weight-bold text-dark">{{item.name}}</span>
 					<q-rating
 					v-if="item.rating > 0"
 					:value="item.rating"
@@ -60,7 +60,7 @@
 				no-caps
 				label="View Alternatives"
 				class="button" 
-				v-on:click="showAlt"
+				v-on:click="passInfo2"
 				/>
 				<q-space/>
 				<q-btn 
@@ -78,16 +78,20 @@
 		</q-card>
 		<infopage
 		:item= "item"/>
+		<altpage
+		:item= "item"/>
 	</div>
 </template>
 <script>
 import infopage from '../components/ItemInfo.vue'
+import altpage from '../components/Alternatives.vue'
 import { bus } from '../main'
 export default {
 	name:"pop",
 	props:["item"],
 	components:{
-		infopage
+		infopage,
+		altpage
 	},
 	data(){
 		return{
@@ -108,8 +112,8 @@ export default {
 		passInfo(){
 			bus.$emit("pass-info")
 		},
-		showAlt(){
-			bus.$emit("show-alt")
+		passInfo2(){
+			bus.$emit("pass-info2")
 		},
 		close(){
 			bus.$emit("close")

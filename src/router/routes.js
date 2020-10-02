@@ -64,10 +64,6 @@ const routes = [
 		path: 'add_item',
 		component: add
 		},
-		{
-		path: 'item_info',
-		component: info
-		},
 
 	]
 	},

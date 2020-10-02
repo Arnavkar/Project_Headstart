@@ -4,7 +4,11 @@
 		class="my-card"
 		bordered
 		v-ripple>
-		<q-slide-item @right="onRight" @action="promptToDelete(id)" right-color="primary" class="bg-transparent">
+		<q-slide-item 
+		@right="onRight" 
+		@action="promptToDelete(id)"
+		right-color="primary" 
+		class="bg-transparent">
 			<template v-slot:right>
 				<div class="row items-center">
 					<q-icon 
@@ -47,6 +51,7 @@
 
 <script>
 import {mapActions} from 'vuex'
+import { bus } from '../main'
 export default{
 	props:['item','id'],
 	methods:{
@@ -77,6 +82,9 @@ export default{
 		},
 		beforeDestroy () {
 		clearTimeout(this.timer)
+		},
+		passInfo(){
+			bus.$emit("pass-info")
 		}
     }
 }

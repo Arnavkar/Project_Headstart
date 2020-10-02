@@ -14,10 +14,10 @@
 
                 <q-btn 
                 @click="toSignUp()"
-                color="positive" 
+                color="white" 
                 label="Signup" 
                 text-color="dark"
-                class = "fixed-bottom login"/>
+                class = "fixed-bottom login q-mt-xl"/>
             </div>  
         </div>  
 	</div>

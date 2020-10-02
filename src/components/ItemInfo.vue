@@ -25,11 +25,12 @@
           :color-selected="ratingColors"
           icon="star_border"
           icon-selected="star"
+          icon-half="star_half"
           readonly/>
           <hr style="height:2px;border-width:0;background-color:lightgray" />
           <p
           class = "text-h6">Pros:</p>
-          <p>Pros</p>
+          <p>hihi</p>
           <br>
           <p
           class = "text-h6">Cons:</p>
