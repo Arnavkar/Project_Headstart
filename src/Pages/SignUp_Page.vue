@@ -57,6 +57,18 @@
 					</q-input>
 				</q-form>
                 <div>
+					<div class="q-py-lg text-dark text-body1"> How much more are you willing to pay for a more sustainable product?</div>
+
+					<q-slider
+						v-model="value"
+						:min="0"
+						:max="5"
+						:step="0.1"
+						label
+						label-always
+						color="primary"
+					/> 
+
                     <q-btn 
                     :loading="loading1" 
                     color="positive" 
@@ -64,7 +76,7 @@
                     @click="simulateProgress(1)" 
                     v-on:click="handleAuthClick" 
                     label="Sign Up" 
-                    class = "q-pa-m q-mt-xl fixed-bottom login"
+                    class = "q-pa-m q-mt-md fixed-bottom login"
                     style="width:100%;"/>
 
 				</div>
@@ -251,13 +263,13 @@ hr{
 	position: absolute;
 	bottom: 0vh;
 	width: 100%;
-	height: 40%;
+	height: 45%;
 }
 
 .curved{
 	background: transparent;
 	position: absolute;
-	bottom:40%;
+	bottom:45%;
 	z-index: -1;
 	margin:-1;
 }

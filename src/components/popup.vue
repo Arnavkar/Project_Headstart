@@ -2,16 +2,16 @@
 	<div>
 		<q-card 
 		class="my-popup">
-			<q-card-section class = "content">
+			<q-card-section class = "content q-pt-none">
 				<div style="display:flex; flex-direction: column; align-items:center;">
 					<q-img 
 					class="imgstyle"
 					contain 
 					:src = "item.image"/> 
-					<p class=" text-h6 text-dark p-pt-sm">$5.00 {{item.price}}</p>
+					<p class=" text-body1 text-dark p-pt-sm">$5.00 {{item.price}}</p>
 				</div>
 				<div class = "q-pl-md" style="display:flex; flex-direction: column;">
-					<span class="text-h4 text-dark">{{item.name}}</span>
+					<span class="text-h5 text-weight-bold text-dark">{{item.name}}</span>
 					<q-rating
 					v-if="item.rating > 0"
 					:value="item.rating"
@@ -60,7 +60,8 @@
 				no-caps
 				label="View Alternatives"
 				class="button" 
-				v-on:click="passInfo"/>
+				v-on:click="showAlt"
+				/>
 				<q-space/>
 				<q-btn 
 				v-if="item.rating > 0"
@@ -82,7 +83,6 @@
 <script>
 import infopage from '../components/ItemInfo.vue'
 import { bus } from '../main'
-
 export default {
 	name:"pop",
 	props:["item"],
@@ -108,6 +108,9 @@ export default {
 		passInfo(){
 			bus.$emit("pass-info")
 		},
+		showAlt(){
+			bus.$emit("show-alt")
+		},
 		close(){
 			bus.$emit("close")
 		}
@@ -124,13 +127,11 @@ export default {
 	display:flex;
 	flex-direction:column;
 }
-
 .content{
 	width:100vw;
 	display:flex;
 	align-items: top;
 }
-
 .text{
 	display:flex;
 	margin-top:-3vh;
@@ -138,7 +139,6 @@ export default {
 	max-width:95vw;
 	align-items:center;
 }
-
 .imgstyle{
 	position: relative;
 	border-radius:200px;
@@ -146,31 +146,24 @@ export default {
 	width:70px; 
 	background-color:#C3EFDB;
 }
-
 .button{
 	position:relative;
 	display:flex;
 	justify-content:center;
 	align-items:center;
 }
-
 #save{
 	background-color:#C3EFDB;
 	border-radius:15px;
 	width:45px;
 	height:45px;
 }
-
 #close{
 	width:40px;
 	height:40px;
 }
-
 #prompt{
 	height:30px;
 	margin-left: 7px;
 }
-
-
-
 </style>

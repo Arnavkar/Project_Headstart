@@ -84,10 +84,10 @@
 
 <style>
 
-.scanner {
-	/*position: absolute;*/
-	/* max-width: 1280px;
-	height: 100%; */
-}
+/* .scanner {
+	position: absolute;
+	max-width: 1280px;
+	height: 100%;
+} */
 
 </style>

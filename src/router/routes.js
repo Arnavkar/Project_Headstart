@@ -11,6 +11,7 @@ import profile from'../Pages/Profile_Page.vue'
 import request from '../Pages/Request_Page.vue'
 import update from '../Pages/Update_Page.vue'
 import add from '../Pages/Add_Page.vue'
+import info from '../components/ItemInfo.vue'
 
 import Landing from '../Pages/Landing_Page.vue'
 import Auth from '../Pages/Auth_Page.vue'
@@ -62,6 +63,10 @@ const routes = [
 		{
 		path: 'add_item',
 		component: add
+		},
+		{
+		path: 'item_info',
+		component: info
 		},
 
 	]
