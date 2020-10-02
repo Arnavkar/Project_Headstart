@@ -65,13 +65,23 @@
         if(database[string]==undefined){
           console.log( "item not found")
           var stockItem = {
-            name: "Sorry, we don't have this Item yet!",
             barcode: string,
             image: "https://us.123rf.com/450wm/pavelstasevich/pavelstasevich1811/pavelstasevich181101029/112815932-stock-vector-no-image-available-icon-flat-vector-illustration.jpg?ver=6",
-            POM:'NA',
-            manufacturer:'NA',
-            rating: "NA",
-            additional: "Click to Request for Information on this product!"
+            name: "Sorry, we don't have this Item yet!",
+            category: "-",
+            price:"-",
+            m1:"0",
+            m2:"0",
+            m3:"0",
+            p1:"0",
+            p2:"0",
+            p3:"0",
+            i1:"0",
+            i2:"0",
+            i3:"0",
+            i4:"0",
+            rating: 0,
+            additional:"-"
           }
           return stockItem
         } else {

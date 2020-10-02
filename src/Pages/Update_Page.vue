@@ -83,25 +83,74 @@
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
+import {mapActions} from 'vuex'
+
 export default {
-  data () {
-    return {
-        name: null,
-        other: null,
-        input:null,
-    
-    }
+    computed:{
+        ...mapGetters("info",{ userInfo: "info" }),
+        ...mapActions('info',['updateItemInfoTally']),
+	},
+    data () {
+        return {
+            name: null,
+            code: null,
+            other: null,
+            photo:null,
+        }
   },
 
   methods: {
-    onSubmit () {
+    onSubmit (evt) {
         this.$q.notify({
           color: 'green-4',
           textColor: 'white',
           icon: 'cloud_done',
           message: 'Submitted'
         })
+        
+        const formData = new FormData(evt.target)
+        const submitResult =[]
+        const names=[]
+        for (const [ name ,value ] of formData.entries()) {
+                names.push(name)
+                submitResult.push(
+                value
+            )
+        }
+
+        submitResult.unshift(this.userInfo.email)
+        this.send(submitResult)
+        this.updateItemInfoTally()
     },
+
+    send(payload) {
+        console.log("received")
+        this.$gapi.getGapiClient().then((gapi) => {
+            gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
+            updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+            
+            function updateSigninStatus(isSignedIn) {
+                console.log(isSignedIn);
+                return isSignedIn
+            }
+
+            var values = [payload];
+            var body = {
+                values: values
+            };
+            gapi.client.sheets.spreadsheets.values.append({
+                spreadsheetId: '1cVb20kWTHXWdOaDn6oaMxMXwXqBHzlpqRDI9UAxtXQk',
+                range: 'Update_Info!A2:Z100',
+                valueInputOption: "USER_ENTERED",
+                resource: body
+            }).then(() => {
+                console.log('cells updated');
+            });
+        }, function(error) {
+            console.log(JSON.stringify(error, null, 2));
+        });
+    }
   }
 }
 </script>

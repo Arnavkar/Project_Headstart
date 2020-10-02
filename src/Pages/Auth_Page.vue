@@ -48,17 +48,27 @@
 			for (var i = 0; i < range.values.length; i++){
 				var row = range.values[i]
 				var barcode = row[0].toString();
-				if(row[3]==""){
-					row[3] = "https://us.123rf.com/450wm/pavelstasevich/pavelstasevich1811/pavelstasevich181101029/112815932-stock-vector-no-image-available-icon-flat-vector-illustration.jpg?ver=6"
+				if(row[1]==""){
+					row[1] = "https://us.123rf.com/450wm/pavelstasevich/pavelstasevich1811/pavelstasevich181101029/112815932-stock-vector-no-image-available-icon-flat-vector-illustration.jpg?ver=6"
 				}
 				Vue.set(database,barcode, {
-					name: row[1],
 					barcode: barcode,
-					image: row[3],
-					POM:row[5],
-					manufacturer:row[4],
-					rating: row[6],
-					additional: ""
+					image: row[1],
+					name: row[2],
+					category: row[3],
+					price:row[4],
+					m1:row[5],
+					m2:row[6],
+					m3:row[7],
+					p1:row[8],
+					p2:row[9],
+					p3:row[10],
+					i1:row[11],
+					i2:row[12],
+					i3:row[13],
+					i4:row[14],
+					rating: parseInt(row[15]),
+					additional: row[16]
 				})
 			}
 		} else {
@@ -95,7 +105,7 @@
 					function readData() {
 						gapi.client.sheets.spreadsheets.values.get({
 							spreadsheetId: '1cVb20kWTHXWdOaDn6oaMxMXwXqBHzlpqRDI9UAxtXQk',
-							range: 'testsheet!A3:G25',
+							range: 'Database!A3:Q100',
 						}).then(function(response) {
 							var range = response.result;
 							localStorage.setItem('database',JSON.stringify((createLocalDatabase(range))))
@@ -140,7 +150,7 @@
 				setTimeout(() => {
 				// we're done, we reset loading state
 				this[`loading${number}`] = false
-				}, 3000)
+				}, 7)
 			}
 		},
 		mounted() {

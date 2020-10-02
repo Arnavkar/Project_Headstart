@@ -88,6 +88,7 @@
                 </p>
                 <p class= "select">
                     <q-option-group
+                    name = "info"
                     v-model="group"
                     :options="options"
                     inline
@@ -98,6 +99,7 @@
                     <q-input 
                     filled 
                     v-model="other"
+                    name="other"
                     type="textarea"
                     label="Other Information"/>
                 </p>
@@ -117,43 +119,113 @@
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
+import {mapActions} from 'vuex'
+
 export default {
-  data () {
-    return {
-        name: null,
-        other: null,
-        input:null,
-        group:[ ],
-        options:[
-            {
-            label:"Recyclable Packaging",
-            value:'info1'
-            },
-            {
-            label:"Made Locally",
-            value:'info2'
-            },
-            {
-            label:"Reduced Emission",
-            value:'info3'
-            },
-            {
-            label:"Responsibly Sourced",
-            value:'info4'
-            },
-        ],
-    }
+    computed:{
+        ...mapGetters("info",{ userInfo: "info" }),
+        ...mapActions('info',['updateItemRequestTally']),
+	},
+    data () {
+        return {
+            name: null,
+            code: null,
+            price: null,
+            other: null,
+            photo:null,
+            group:[],
+            category:null,
+            options:[
+                {
+                label:"Recyclable Packaging",
+                value:"Recyclable Packaging"
+                },
+                {
+                label:"Made Locally",
+                value:"Made Locally"
+                },
+                {
+                label:"Reduced Emission",
+                value:"Reduced Emission"
+                },
+                {
+                label:"Responsibly Sourced",
+                value:"Responsibly Sourced"
+                },
+            ],
+            categories:[
+                {
+                label:"Skin Care & Hygiene",
+                value:"Skin Care & Hygiene"
+                },
+                {
+                label:"Food & Beverage",
+                value:"Food & Beverage"
+                },
+                {
+                label:"Cleaning Products",
+                value:"Cleaning Products"
+                },
+            ]
+        }
   },
 
   methods: {
-    onSubmit () {
+    onSubmit (evt) {
         this.$q.notify({
           color: 'green-4',
           textColor: 'white',
           icon: 'cloud_done',
           message: 'Submitted'
         })
+        
+        const formData = new FormData(evt.target)
+        const submitResult =[]
+        const names=[]
+        for (const [ name ,value ] of formData.entries()) {
+                names.push(name)
+                submitResult.push(
+                value
+            )
+        }
+        //manipulation to make sure stuff ends up in the right place
+        var x = submitResult[submitResult.length - 1]
+        submitResult[submitResult.length - 1] = submitResult[4]
+        submitResult[4] = x
+
+        submitResult.unshift(this.userInfo.email)
+        this.send(submitResult)
+        this.updateItemRequestTally()
     },
+
+    send(payload) {
+        console.log("received")
+        this.$gapi.getGapiClient().then((gapi) => {
+            gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
+            updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+            
+            function updateSigninStatus(isSignedIn) {
+                console.log(isSignedIn);
+                return isSignedIn
+            }
+
+            var values = [payload];
+            var body = {
+                values: values
+            };
+            gapi.client.sheets.spreadsheets.values.append({
+                spreadsheetId: '1cVb20kWTHXWdOaDn6oaMxMXwXqBHzlpqRDI9UAxtXQk',
+                range: 'Product_Requests!A2:Z100',
+                valueInputOption: "USER_ENTERED",
+                resource: body
+            }).then(() => {
+                console.log('cells updated');
+            });
+        }, function(error) {
+            console.log(JSON.stringify(error, null, 2));
+        });
+    }
   }
 }
 </script>

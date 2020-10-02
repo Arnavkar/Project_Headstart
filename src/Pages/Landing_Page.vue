@@ -5,8 +5,7 @@
             <div class="text-h4"> Sustainable Living</div>
             <div class="text-h6 text-weight-light"> Make a difference today</div>
             <div class="q-pt-md content" >
-                <q-btn 
-                :loading="loading1" 
+                <q-btn  
                 @click="toLogin()"
                 color="white" 
                 text-color="dark"
@@ -14,7 +13,6 @@
                 class = "fixed-bottom login"/>
 
                 <q-btn 
-                :loading="loading1" 
                 @click="toSignUp()"
                 color="positive" 
                 label="Signup" 

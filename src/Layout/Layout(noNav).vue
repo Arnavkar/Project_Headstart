@@ -11,19 +11,109 @@
       class="bg-white text-secondary header"
       >
         <q-toolbar>
-          <q-btn dense flat round color="dark" icon="keyboard_arrow_left" @click= "goBack" size = "20px" /> 
-          <q-toolbar-title class="text-dark" style="display:flex; justify-content:center;">
+          <q-btn dense flat color="dark" round icon="keyboard_arrow_left" @click= "goBack" size = "20px" /> 
+          <q-toolbar-title style="display:flex; justify-content:center;">
             <portal-target name="header"></portal-target>
           </q-toolbar-title>
-          <q-btn dense flat round color="dark" icon="signal_cellular_alt" size = "20px" @click="right = !right"  class="rotate-270"/>
+          <q-btn dense flat color="dark" round icon="signal_cellular_alt" size = "20px" @click="right = !right"  class="rotate-270"/>
         </q-toolbar>
       </q-header>
-
       <q-drawer v-model="right" side="right" overlay behavior="mobile" elevated>
         <q-list dark>
-          <q-item-label header> Navigation </q-item-label>
+          <q-item header>
+            <q-item-section thumbnail class="q-py-md q-mb-lg">
+            <img src="../assets/Logo.svg" class="logo q-mt-lg q-mr-md q-pa-none"/>
+            </q-item-section>
+          </q-item>
+
           <q-item
-            class="text-grey-9"
+          clickable
+          bordered
+          class="text-dark">
+            <q-item-section avatar>
+              <q-icon name="account_circle"/>
+            </q-item-section>
+            <q-item-section>
+              Account Information
+            </q-item-section>
+
+            <q-menu
+            fit
+            anchor="bottom right"
+            self="top right">
+              <q-form>
+                <div class="row q-pa-md">
+                  <div class="column">
+                    <q-input
+                      filled
+                      outlined
+                      dense
+                      color="primary"
+                      v-model="email"
+                      label="Email"
+                      style="padding-bottom:15px;"
+                      :disable="disable"
+                    >
+                      <template v-slot:before>
+                      <q-icon name="mail" color="primary"/>
+                      </template>
+                    </q-input>
+                    <q-input
+                      filled
+                      outlined
+                      dense
+                      color="primary"
+                      v-model="text"
+                      label="Name"
+                      :disable="disable" 
+                    >
+                      <template v-slot:before>
+                      <q-icon name="mdi-card-account-details" color="primary"/>
+                      </template>
+                    </q-input>
+                  </div>
+                  <q-btn
+                    color="grey"
+                    label="Edit"
+                    no-caps
+                    push
+                    size="md"
+                    class="q-ml-lg"
+                    style="max-height:4em; border-radius:15px;"
+                    @click="toggle()"
+                  />
+                </div>
+                <!-- change cancel to save when enabled -->
+                <div class="btn">
+                <q-btn
+                  color="negative"
+                  label="Cancel"
+                  push
+                  stretch
+                  size="md"
+                  class="q-my-md"
+                  v-close-popup
+                  style="border-radius:15px !important; "
+                />
+                <q-btn
+                  color="positive"
+                  label="Save"
+                  push
+                  stretch
+                  text-color="dark"
+                  size="md"
+                  class="q-my-md"
+                  style="border-radius:15px !important; "
+                  v-close-popup
+                />
+                </div>
+              </q-form>
+            </q-menu>
+
+          </q-item>
+
+          <q-item
+            class="text-dark"
             v-for="tab in drawerTabs"
             :key="tab.label"
             :to="tab.to"
@@ -40,7 +130,7 @@
           </q-item>
 
           <q-item
-            class="text-grey-9"
+            class="text-dark"
             exact 
             clickable
             @click.stop="promptToSignout()">
@@ -65,18 +155,19 @@ import { bus } from '../main'
 export default {
   data () {
     return {
+      disable: true,
+      text: 'Jerry',
+      email: 'abc@gmail.com',
+      // text: {UserName},
+      // email: {UserEmail},
       right:false,
+  
       drawerTabs:[
-         {
-          icon: "house",
-          label: "Home",
-          to: "/b/home"
-        },
-        {
-          icon: "account_circle",
-          label: "Account Information",
-          to: "/b/profile"
-        },
+        // {
+        //   icon: "account_circle",
+        //   label: "Account Information",
+        //   to: "/b/profile"
+        // },
         {
           icon: "contact_support",
           label: "FAQ",
@@ -123,13 +214,25 @@ export default {
     },
     goBack(){
       this.$router.go(-1)
+    },
+    toggle(){
+      this.disable=!this.disable
     }
   }
 }
 </script>
 
-<style lang="stylus" primary>
+<style lang="stylus"> 
 @import '~quasar-variables-styl'
+
+.q-footer{
+  border-radius:20px 20px 0px 0px;
+}
+
+a.q-tab {
+  transition: all 0.3s ease;
+
+}
 
 .view-enter-active, .view-leave-active{
   transition: opacity 0.5s ease-in-out, transform 0.5s ease;
@@ -148,13 +251,35 @@ export default {
 }
 
 .q-header{
-  border-radius:0px 0px 15px 15px;
+  border-radius:0px 0px 30px 30px;
   border-bottom-style:solid;
   border-bottom-width:1px;
-  border-bottom-color:white;
+}
+
+a.q-tab{
+  transition: all 0.3s;
+}
+
+.bg-light {
+  background: #C3EFDB;
 }
 
 .exclusive{
   background: #C3EFDB;
 }
+
+.logo{
+  position: absolute;
+  right: 0%;
+  width: 10em;
+  height: 6em;
+  z-index:1;
+}
+
+.btn{
+  display: inline-flex;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
 </style>
