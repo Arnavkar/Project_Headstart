@@ -14,7 +14,7 @@
 			<div class="textblock">
 				<div class="q-px-xl text-h4 text-dark text-weight-medium">Create</div>
 				<div class="q-px-xl text-h4 text-dark text-weight-medium">Account</div>
-				<div class="q-px-xl q-pt-lg text-dark text-body2">The Earth is what we all have in common.</div>
+				<div class="q-px-xl q-pt-sm text-dark text-body2">The Earth is what we all have in common.</div>
 				<div class="q-px-xl text-dark text-body2">-Wendell Berry</div>
 			</div>
 		</div>
@@ -267,7 +267,7 @@
 	z-index: -10;
 }
 .login{
-	width:90vw;
+	width:100%;
 	height:50px;
 	font-size:20px;
 	border-radius:10px;
@@ -293,19 +293,20 @@ hr{
 	position: absolute;
 	bottom: 0vh;
 	width: 100%;
+	height: 60%;;
 }
 
 .curved{
 	background: transparent;
 	position: absolute;
-	bottom:50%;
+	bottom:60%;
 	z-index: -1;
 	margin:-1;
 }
 
 .textblock{
 	position: absolute;
-	top: 20vh;
+	top: 12vh;
 }
 
 </style>
