@@ -148,7 +148,6 @@
 			}
 		},
 		mounted() {
-			this.login()
 			var database = JSON.parse(localStorage.getItem('database'))
 			this.addDatabase(database);
 

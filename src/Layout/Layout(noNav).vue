@@ -98,6 +98,8 @@
                 <q-btn
                   color="positive"
                   label="Save"
+                  type="submit"
+                  @click="onSubmit"
                   push
                   stretch
                   text-color="dark"
@@ -156,18 +158,18 @@ export default {
   data () {
     return {
       disable: true,
-      text: 'Jerry',
-      email: 'abc@gmail.com',
+      text: JSON.parse(localStorage.getItem("userInfo")).Name,
+      email: JSON.parse(localStorage.getItem("userInfo")).Email,
       // text: {UserName},
       // email: {UserEmail},
       right:false,
   
       drawerTabs:[
-        // {
-        //   icon: "account_circle",
-        //   label: "Account Information",
-        //   to: "/b/profile"
-        // },
+        {
+          icon: "home",
+          label: "Home",
+          to: "/b/home"
+        },
         {
           icon: "contact_support",
           label: "FAQ",
@@ -217,7 +219,8 @@ export default {
     },
     toggle(){
       this.disable=!this.disable
-    }
+    },
+    onSubmit(){}
   }
 }
 </script>

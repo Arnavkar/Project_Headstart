@@ -1,26 +1,9 @@
 <template>
-  <q-page >
-    <q-card class = "absolute-center">
-      <BarCodeScanner/>
-    </q-card>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" rel="stylesheet" type="text/css">
-    <!-- q card with tabs enabled!-->
-    <!-- <q-card id = "scanner" class="my-card text-center">
-      <q-tab-panels v-model="tab" animated>
-        
-        <q-tab-panel name="one">
-          <BarCodeScanner class = "scanner"/>
-        </q-tab-panel>
-        <q-tab-panel name="two">
-          <p> Receipt Scanner </p>
-        </q-tab-panel>
-      </q-tab-panels>
-    <q-separator/>
-    <q-tabs v-model="tab" class="text-teal ">
-      <q-tab label = "Barcode" name="one"/>
-      <q-tab label = "Receipt" name="two"/>
-    </q-tabs>
-  </q-card> -->
+<q-page class = "container">
+  <q-card class = "absolute-center">
+    <BarCodeScanner/>
+  </q-card>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" rel="stylesheet" type="text/css">
   <div>
     <transition 
     name="slide">
@@ -37,6 +20,7 @@
   import BarCodeScanner from '../components/BarCodeScanner.vue'
   import { bus } from '../main'
   var database = JSON.parse(localStorage.getItem('database'));
+
   export default{
     name: 'Scanner_Page',
     components: {
@@ -95,6 +79,7 @@
         if (this.show==false){
           this.currentItem = this.searchAndRetrieve(data)
           console.log(this.currentItem)
+          localStorage.setItem("currentItem",JSON.stringify(this.currentItem))
           this.show = true
         } else {
           this.show = false;
@@ -116,6 +101,10 @@
 </script>
 
 <style>
+.container{
+  max-height:100%;
+  max-width:100vw;
+}
 .slide-enter-active, .slide-leave-active{
   transition: opacity 0.5s ease-in-out, transform 0.5s ease;
 }
@@ -127,7 +116,7 @@
   transform: translateY(-200px);
 }
 .slide-enter-to, .slide-leave{
-  opacity: 1;
+  opacity: 100;
   transform: translateY(0px);
 }
 </style>

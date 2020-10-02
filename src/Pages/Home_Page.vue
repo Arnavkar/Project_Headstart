@@ -33,6 +33,7 @@
                     color="positive" 
                     text-color="dark"
                     class="btn-fixed-width"
+                    v-on:click="firstTime()"
                     v-close-popup
                     />
                     </q-carousel-control>
@@ -87,10 +88,11 @@
 import Homepage from '../components/Homedisplay.vue';
 
 
+
 export default {
     data () {
         return {
-            carousel: true,
+            carousel: JSON.parse(localStorage.getItem("firstTime")).firstTime,
             slide: 1, 
             slide1: "Start shopping",
             slide2: "Start scanning",
@@ -100,6 +102,12 @@ export default {
     },
     components: {
         Homepage,
+    },
+    methods:{
+        firstTime(){
+            var firstTime = {firstTime:false}
+            localStorage.setItem("firstTime",JSON.stringify(firstTime))
+        }
     }
 }
 

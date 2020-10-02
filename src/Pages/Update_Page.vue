@@ -73,8 +73,7 @@
                 class = "item q-mt-md"
                 icon="send"
                 label="Submit" 
-                type="submit" 
-                color="primary"/>
+                type="submit" />
             </div>
         </q-form>
     </div>
@@ -93,8 +92,8 @@ export default {
 	},
     data () {
         return {
-            name: null,
-            code: null,
+            name: JSON.parse(localStorage.getItem('currentItem')).name,
+            code: JSON.parse(localStorage.getItem('currentItem')).barcode,
             other: null,
             photo:null,
         }
@@ -186,7 +185,6 @@ export default {
   transition-duration: 0.2s;
   cursor: pointer;
   border-radius: 7px;
-  border-radius: 20px;
 }
 .item:hover {
   background: #26A69A;

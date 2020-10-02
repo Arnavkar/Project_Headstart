@@ -26,22 +26,23 @@
 
 				<!-- <q-separator vertical inset/> -->
 
-				<q-card-section class="q-pa-md bg-white">
+				<q-card-section class="q-pa-sm bg-white">
 					<div class="text-h6 q-mx-md">{{item.name}}</div>
 					<!-- <div class="text-subtitle1">{{id}}</div>
 					<div class="text-subtitle2">Made by {{item.manufacturer}}, manufactured in {{item.POM}}</div> -->
-					<div class="text-subtitle1  q-mx-md">Rating: {{item.rating}} / 5</div>
+					<q-rating
+					class="q-pa-sm"
+					:value="item.rating"
+					max="5"
+					size="9vw"
+					color="grey"
+					:color-selected="ratingColors"
+					icon="eco"
+					icon-selected="eco"
+					readonly/>
+
 				</q-card-section>
-				<q-space/>
-				<!-- <q-item-section side>
-					<q-btn 
-					@click.stop="promptToDelete(id)" 
-					flat
-					color="bg-dark"
-					icon= "mdi-delete-empty"
-					size="20px"
-					dense/>
-				</q-item-section>  -->
+
 			</q-card-section>
 		</q-slide-item>
 		</q-card>
@@ -51,9 +52,14 @@
 
 <script>
 import {mapActions} from 'vuex'
-import { bus } from '../main'
+
 export default{
 	props:['item','id'],
+	data(){
+		return{
+			ratingColors: [ 'light-green-3', 'light-green-6', 'green', 'green-9', 'green-10' ]
+		}
+	},
 	methods:{
 		...mapActions('items',['deleteItem']),
 		promptToDelete(id){
@@ -76,16 +82,11 @@ export default{
 		this.finalize(reset)
 		},
 		finalize (reset) {
-		this.timer = setTimeout(() => {
-		reset()
-		}, 800)
+			this.timer = setTimeout(() => {reset()}, 800)
 		},
 		beforeDestroy () {
-		clearTimeout(this.timer)
+			clearTimeout(this.timer)
 		},
-		passInfo(){
-			bus.$emit("pass-info")
-		}
     }
 }
 
