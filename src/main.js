@@ -31,4 +31,5 @@ new Vue({
 	router: router,
 	store: store,
 	render: h => h('router-view'),
+  points: 1,
 }).$mount('#app')

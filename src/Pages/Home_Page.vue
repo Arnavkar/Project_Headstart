@@ -1,7 +1,8 @@
 <template>
     <div>
     <Homepage
-    UserName = 'Jerry'/>
+    UserName = 'Annabel'
+    Points = 3 />
     <q-page padding>
         <div class="q-pa-md q-gutter-sm">
             <q-dialog v-model="carousel">
