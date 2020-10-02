@@ -5,12 +5,12 @@
             <div class="text-h4"> Sustainable Living</div>
             <div class="text-h6 text-weight-light"> Make a difference today</div>
             <div class="q-pt-md content" >
-                <q-btn  
+                <!-- <q-btn  
                 @click="toLogin()"
                 color="white" 
                 text-color="dark"
                 label="Login" 
-                class = "fixed-bottom login"/>
+                class = "fixed-bottom login"/> -->
 
                 <q-btn 
                 @click="toSignUp()"
@@ -48,7 +48,6 @@ export default {
     background-repeat: no-repeat;
 	width:100vw;
     height:100vh;
-    opacity: 90%;
 }
 
 .logo{

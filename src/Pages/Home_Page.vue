@@ -1,7 +1,7 @@
 <template>
     <div>
     <Homepage
-    UserName = 'Jerry'/>
+    />
     <q-page>
         <div class="q-pa-md">
             <q-dialog v-model="carousel">
@@ -85,6 +85,7 @@
 
 <script>
 import Homepage from '../components/Homedisplay.vue';
+
 
 export default {
     data () {

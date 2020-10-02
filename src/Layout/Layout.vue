@@ -284,12 +284,6 @@ a.q-tab {
   opacity: 1;
 }
 
-.q-header{
-  border-radius:0px 0px 30px 30px;
-  border-bottom-style:solid;
-  border-bottom-width:1px;
-}
-
 a.q-tab{
   transition: all 0.3s;
 }
@@ -297,7 +291,6 @@ a.q-tab{
 .bg-light {
   background: #C3EFDB;
 }
-
 
 .white-oval{
   border-radius: 10vw;

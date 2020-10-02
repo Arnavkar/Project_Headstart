@@ -32,12 +32,6 @@
                     class = "q-pa-m q-mt-lg fixed-bottom login"/>
 				</div>
 			</div>
-		<!--  END DESIGN OF LOGIN PAGE HERE -->
-
-		<!-- USED TO WRITE DATA -->
-		<!-- <input id="input" type="text">
-		<input id="submit" type="submit"> -->
-		<!-- <pre id="content" style="white-space: pre-wrap;"></pre> -->
 	</div>
 </template>
 <script>
@@ -120,7 +114,7 @@
 				});
 			},
 
-			handleAuthClick() {
+			handleAuthClick: function (){
 				this.$gapi.login();
 
 				setTimeout(() => {
@@ -160,7 +154,10 @@
 
 			bus.$on("sign-out", () => {
 				this.handleSignoutClick()
-			
+			})
+
+			bus.$on("sign-up",() => {
+				this.handleAuthClick()
 			})
 		},
 	}

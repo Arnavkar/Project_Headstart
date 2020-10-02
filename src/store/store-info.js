@@ -1,7 +1,7 @@
 const state = {
     info:{
-        name:"Jerry",
-		email:"jerry@gmail.com",
+        Name:"",
+		Email:"",
 		priceRange:2.5,
         firstTime:true,
         scanTally:0,
