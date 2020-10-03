@@ -1,10 +1,10 @@
 <template>
-  <q-page padding class = "q-pa-md q-gutter-sm">
+  <q-page padding class = "container q-pa-md q-gutter-sm">
     <q-dialog 
     v-model = "card">
       <q-card class = "container q-pa-md">
-          <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" />
-          <span class="field-data">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" />
+        <div class="field-data q-pa-sm" >
           <q-img 
           id="itemimg"
           contain
@@ -12,41 +12,81 @@
           :src="item.image"/>
           <h4> {{item.name}} </h4>
           <!-- <button class = "item"> Back </button> -->
-          </span>
-          <!-- <p>Category: {{item.cat}}</p> -->
-          <p
-          class="text-h5">Place of Manufacture: {{item.POM}}</p>
-          <!-- <p class="Stars" style="--rating: 3.5;" :border-width="2">Rating:</p> -->
-          <q-rating
-          :value="item.rating"
-          max="5"
-          size="3em"
-          color="grey"
-          :color-selected="ratingColors"
-          icon="star_border"
-          icon-selected="star"
-          icon-half="star_half"
-          readonly/>
-          <hr style="height:2px;border-width:0;background-color:lightgray" />
-          <p
-          class = "text-h6">Pros:</p>
-          <p>hihi</p>
-          <br>
-          <p
-          class = "text-h6">Cons:</p>
-          <p>Con</p>  
-          <!-- <button class="item save">Save item</button> -->
-          <q-btn 
-          elevated 
-          label="Product rating request" 
-          icon="info"
-          class = "q-ma-md item" />
+        </div>
 
-          <q-btn 
-          elevated 
-          icon="announcement"
-          label="Report Outdated Information" 
-          class = "q-ma-md item" />
+        <p v-if="item.rating>0" class="text-h6 q-pt-md"> 
+          <q-icon 
+          name="eco" 
+          clickable
+          class ="icon"/>
+          Place of manufacture
+        </p>
+        <div v-if="item.rating>0" style = "display:flex; flex-wrap:wrap;">
+          <q-btn :style = "[ item.m1 == 1 ? {'background-color':'#41B883'} : {'color':'black'} ]" class = "button q-ma-xs" label="Local"  no-caps />
+          <q-btn :style = "[ item.m2 == 1 ? {'background-color':'#41B883'} : {'color':'black'} ]" class = "button q-ma-xs" label="From Asia"  no-caps />
+          <q-btn :style = "[ item.m3 == 1 ? {'background-color':'#41B883'} : {'color':'black'} ]" class = "button q-ma-xs" label="Outside of Asia"  no-caps />
+        </div>
+        
+
+        <p v-if="item.rating>0" class="text-h6 q-pt-md"> 
+          <q-icon 
+          name="eco" 
+          clickable
+          class ="icon"/>
+          Packaging
+        </p>
+        <div v-if="item.rating>0" style = "display:flex; flex-wrap:wrap;">
+          <q-btn :style = "[ item.p1 == 1 ? {'background-color':'#41B883'} : {'color':'black'} ]" class = "button q-ma-xs" label="Sustainably Sourced"  no-caps />
+          <q-btn :style = "[ item.p2 == 1 ? {'background-color':'#41B883'} : {'color':'black'} ]" class = "button q-ma-xs" label="Bio-degradable"  no-caps />
+          <q-btn :style = "[ item.p3 == 1 ? {'background-color':'#41B883'} : {'color':'black'}]" class = "button q-ma-xs" label="Recyclable"  no-caps />
+        </div>
+
+        <p v-if="item.rating>0" class="text-h6 q-pt-md"> 
+          <q-icon 
+          name="eco" 
+          clickable
+          class ="icon"/>
+          Ingredients
+        </p>
+
+        <div v-if="item.rating>0" style = "display:flex; flex-wrap:wrap;">
+          <q-btn :style = "[ item.m1 == 1 ? {'background-color':'#41B883'} : {'color':'black'} ]" class = "button q-ma-xs" label="Organic"  no-caps />
+          <q-btn :style = "[ item.m2 == 1 ? {'background-color':'#41B883'} : {'color':'black'} ]" class = "button q-ma-xs" label="Plant-based Alternative"  no-caps />
+          <q-btn :style = "[ item.m3 == 1 ? {'background-color':'#41B883'} : {'color':'black'}]" class = "button q-ma-xs" label="Cruelty-free"  no-caps />
+          <q-btn :style = "[ item.m4 == 1 ? {'background-color':'#41B883'} : {'color':'black'} ]" class = "button q-ma-xs" label="Carbon-certification"  no-caps />
+        </div>
+
+        <span class="text-h5 q-pt-md"> Our Rating: </span>
+        <q-rating
+        :value="item.rating"
+        max="5"
+        size="3em"
+        icon="eco"
+        :color-selected="ratingColors"
+        color="grey"
+        readonly/>
+
+        <div v-if="item.rating>0" class = "q-pt-sm text-h6">
+          Additional Notes: {{item.additional}}
+        </div>
+
+        <q-space/>
+        <!-- <button class="item save">Save item</button> -->
+        <q-btn 
+        v-if="item.rating == 0 "
+        elevated 
+        label="Product Request" 
+        icon="info"
+        class = "q-ma-md item"
+        @click="request()" />
+
+        <q-btn 
+        v-if="item.rating > 0 "
+        elevated 
+        icon="announcement"
+        label="Report Outdated Information" 
+        class = "q-ma-md item "
+        @click="outdated()" />
 
       </q-card>
     </q-dialog>
@@ -64,6 +104,15 @@ export default {
       ratingColors: [ 'light-green-3', 'light-green-6', 'green', 'green-9', 'green-10' ]
     }
   },
+  methods:{
+    outdated(){
+			this.$router.replace('/n/update_info')
+    },
+    request(){
+      this.$router.replace('/n/product_request')
+    }
+  },
+
   mounted(){
     bus.$on("pass-info", () => {
       this.card=true;
@@ -73,9 +122,17 @@ export default {
 </script>
 <style scoped>
 
+.button{
+  min-width:20vw;
+  border-radius:20px;
+  color:white;
+  background-color:white;
+}
 .container {
-  width:100%;
-  height:100%;
+  display:flex;
+  flex-direction:column;
+  width:100vw;
+  height:100wh;
   border-radius:10px;
 }
 #itemimg {
@@ -88,7 +145,9 @@ export default {
   display: flex;
   text-align:left;
   align-items: center;
-  width: 100%;
+  width:auto;
+  height:15vh;
+  border-radius: 20px;
 }
 
 .item {
@@ -111,6 +170,9 @@ export default {
   --star-size: 60px;
   --star-color:grey;
   --star-background: #356809;
+}
+.icon{
+    color:#41B883
 }
 .Stars {
   display: flex;

@@ -27,9 +27,13 @@
 export default {
     name:"landing",
     methods:{
-        toLogin(){
-            this.$router.push('/login')
-        },
+        // toLogin(){
+        //     if(JSON.parse(localStorage.getItem("userInfo")) == null){
+        //         alert("Sign up first!");
+        //     }else{
+        //         this.$router.push('/b/home')
+        //     }
+        // },
         toSignUp(){
             this.$router.push('/signup')
         }

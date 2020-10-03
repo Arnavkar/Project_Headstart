@@ -171,8 +171,8 @@ export default {
   data () {
     return {
       disable: true,
-      text: 'Jerry',
-      email: 'abc@gmail.com',
+      text: JSON.parse(localStorage.getItem("userInfo")).Name,
+      email: JSON.parse(localStorage.getItem("userInfo")).Email,
       // text: {UserName},
       // email: {UserEmail},
       right:false,

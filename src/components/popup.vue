@@ -8,15 +8,16 @@
 					class="imgstyle"
 					contain 
 					:src = "item.image"/> 
-					<p class=" text-body1 text-dark p-pt-sm">$5.00 {{item.price}}</p>
+					<p class="text-body1 text-dark p-pt-sm">${{item.price}}</p>
 				</div>
 				<div class = "q-pl-md" style="display:flex; flex-direction: column;">
-					<span class="text-h text-weight-bold text-dark">{{item.name}}</span>
+					<span class="text-h5 text-weight-bold text-dark">{{item.name}}</span>
 					<q-rating
+					class="q-mt-sm"
 					v-if="item.rating > 0"
 					:value="item.rating"
 					max="5"
-					size="7vw"
+					size="9vw"
 					color="grey"
 					:color-selected="ratingColors"
 					icon="eco"
@@ -24,8 +25,8 @@
 					readonly/>
 
 					<span 
-					class="text-h5 text-dark"
-					v-if="item.rating == 'NA'"
+					class="text-h7 text-dark"
+					v-if="item.rating == 0"
 					>Click on below to submit a request!</span>
 				</div>
 				<q-space/>
@@ -44,7 +45,7 @@
 				class="button" 
 				v-on:click="passInfo"/>
 				<q-btn 
-				v-if="item.rating == 'NA'"
+				v-if="item.rating == 0"
 				color="secondary"
 				id="prompt"
 				rounded
@@ -60,7 +61,7 @@
 				no-caps
 				label="View Alternatives"
 				class="button" 
-				v-on:click="passInfo2"
+				v-on:click="showAlt"
 				/>
 				<q-space/>
 				<q-btn 
@@ -70,9 +71,10 @@
 				flat
 				round
 				dense
-				@click= "isFavorite=!isFavorite"
+				@click= "isFavorite==true"
+				v-on:click="add"
 				color="primary"
-				v-bind:icon="log(isFavorite)"
+				:icon="this.string"
 				size="20px"/>
 			</q-card-section>
 		</q-card>
@@ -86,9 +88,13 @@
 import infopage from '../components/ItemInfo.vue'
 import altpage from '../components/Alternatives.vue'
 import { bus } from '../main'
+import {mapActions} from 'vuex'
 export default {
 	name:"pop",
 	props:["item"],
+	computed:{
+		...mapActions('items',['addItem','deleteItem']),
+	},
 	components:{
 		infopage,
 		altpage
@@ -112,11 +118,15 @@ export default {
 		passInfo(){
 			bus.$emit("pass-info")
 		},
-		passInfo2(){
-			bus.$emit("pass-info2")
+		showAlt(){
+			bus.$emit("show-alt")
 		},
 		close(){
 			bus.$emit("close")
+		},
+		add(){
+			var payload = JSON.parse(localStorage.getItem('currentItem'))
+			this.addItem(payload)
 		}
 	}
 }

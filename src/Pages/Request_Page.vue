@@ -5,7 +5,7 @@
     </portal>
     <q-page>
     <div>
-        <p class=" text-h4 q-pa-sm" style="padding-top:15vh; color:white;"> Tell us what you want to see.</p>
+        <p class=" text-h6 q-pa-sm" style="padding-top:15vh; color:white;"> Tell us what you want to see.</p>
         <q-form
         flat
         class="q-mt-sm q-pa-md absolute-bottom my-form"
@@ -126,11 +126,12 @@ export default {
     computed:{
         ...mapGetters("info",{ userInfo: "info" }),
         ...mapActions('info',['updateItemRequestTally']),
+        
 	},
     data () {
         return {
             name: null,
-            code: null,
+            code: JSON.parse(localStorage.getItem('currentItem')).barcode,
             price: null,
             other: null,
             photo:null,

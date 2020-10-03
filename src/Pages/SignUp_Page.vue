@@ -22,7 +22,7 @@
 			<svg class="curved" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
 				<path fill="#FFF" fill-opacity="1" d="M0,192L80,192C160,192,320,192,480,170.7C640,149,800,107,960,96C1120,85,1280,107,1360,117.3L1440,128L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
 			</svg>
-			<div class="q-pa-lg white-block">
+			<div class="q-pa-lg white-block fixed-bottom">
 				<q-form
 				@submit="onSubmit">
 					<q-input
@@ -173,6 +173,9 @@
 						userInfo[name] = value
 				}
 			this.createUser(userInfo)
+			var firstTime = {firstTime:true}
+			localStorage.setItem('userInfo',JSON.stringify(userInfo))
+			localStorage.setItem('firstTime', JSON.stringify(firstTime))
 
 			bus.$emit('sign-up')
 			},

@@ -1,8 +1,10 @@
 <template>
-  <div>
-    <div class="text-h5">Alternatives</div>
+  <q-dialog
+  v-model="card">
+  <q-card class="q-pa-md"> <h5> Sorry! We Don't offer alternatives at this point in time :( </h5> </q-card>
+    <!-- <div class="text-h5">Alternatives</div>
 		<q-card 
-		class="my-card"
+    class="container bg-white"
 		bordered
 		v-ripple>
       <q-card-section horizontal>
@@ -13,15 +15,15 @@
         />
         <q-card-section class="q-pa-md bg-white">
           <div class="text-h6 q-mx-md">{{item.name}}</div>
-          <!-- <div class="text-subtitle1">{{id}}</div>
-          <div class="text-subtitle2">Made by {{item.manufacturer}}, manufactured in {{item.POM}}</div> -->
+          <div class="text-subtitle1">{{id}}</div>
+          <div class="text-subtitle2">Made by {{item.manufacturer}}, manufactured in {{item.POM}}</div>
           <div class="text-subtitle1  q-mx-md">Rating: {{item.rating}} / 5</div>
         </q-card-section>
         <q-space/>
       </q-card-section>
 		</q-card>
-		<q-separator spaced color="white" />
-	</div>
+		<q-separator spaced color="white" /> -->
+	</q-dialog>
 </template>
 
 <script>
@@ -36,7 +38,7 @@ export default {
     }
   },
   mounted(){
-    bus.$on("pass-info2", () => {
+    bus.$on("show-alt", () => {
       this.card=true;
     }) 
   }
