@@ -1,7 +1,7 @@
 <template>
 	<div class = "absolute-top background" style = "display:flex; flex-direction:column;"> 
         <img src="../assets/Logo.svg" class="logo"/>
-        <div class="q-px-xl" style="position: absolute;top:70%;width:100vw;">
+        <div class="q-px-xl" style="position: absolute;top:65%;width:100vw;">
             <div class="text-h4"> Sustainable Living</div>
             <div class="text-h6 text-weight-light"> Make a difference today</div>
             <div class="q-pt-md content" >
@@ -17,7 +17,7 @@
                 color="white" 
                 label="Signup" 
                 text-color="dark"
-                class = "fixed-bottom login "/>
+                class = "fixed-bottom login q-mt-md"/>
             </div>  
         </div>  
 	</div>
