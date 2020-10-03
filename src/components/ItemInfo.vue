@@ -116,7 +116,11 @@ export default {
   mounted(){
     bus.$on("pass-info", () => {
       this.card=true;
-    }) 
+    }),
+    
+    bus.$on("show-item",() => {
+      this.card=true
+    })
   }
 }
 </script>

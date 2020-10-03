@@ -16,7 +16,6 @@
 import { mapGetters } from "vuex"
 import ScannedItem from '../components/Scanned_Item.vue'	
 
-
 export default {
 	data(){
 		return{

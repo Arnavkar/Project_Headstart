@@ -71,8 +71,7 @@
 				flat
 				round
 				dense
-				@click= "isFavorite==true"
-				v-on:click="add"
+				@click="add()"
 				color="primary"
 				:icon="this.string"
 				size="20px"/>
@@ -89,24 +88,22 @@ import infopage from '../components/ItemInfo.vue'
 import altpage from '../components/Alternatives.vue'
 import { bus } from '../main'
 import {mapActions} from 'vuex'
+
 export default {
 	name:"pop",
 	props:["item"],
-	computed:{
-		...mapActions('items',['addItem','deleteItem']),
-	},
 	components:{
 		infopage,
 		altpage
 	},
 	data(){
 		return{
-			isFavorite:false,
 			string:"favorite_outlined",
 			ratingColors: [ 'light-green-3', 'light-green-6', 'green', 'green-9', 'green-10' ]
 		}
 	},
 	methods:{
+		...mapActions('items',['addItem','deleteItem']),
 		log(isFavorite){
 			if(isFavorite == true){
 				this.string = "favorite"
@@ -125,6 +122,7 @@ export default {
 			bus.$emit("close")
 		},
 		add(){
+			this.string="favorite"
 			var payload = JSON.parse(localStorage.getItem('currentItem'))
 			this.addItem(payload)
 		}

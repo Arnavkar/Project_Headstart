@@ -3,7 +3,8 @@
 		<q-card 
 		class="my-card"
 		bordered
-		v-ripple>
+		v-ripple
+		v-on:click="passInfo()">
 		<q-slide-item 
 		@right="onRight" 
 		@action="promptToDelete(id)"
@@ -46,12 +47,16 @@
 			</q-card-section>
 		</q-slide-item>
 		</q-card>
+		<infopage
+		:item = "item"/>
 		<q-separator spaced color="white" />
 	</div>
 </template>
 
 <script>
 import {mapActions} from 'vuex'
+import infopage from '../components/ItemInfo.vue'
+import {bus} from '../main'
 
 export default{
 	props:['item','id'],
@@ -59,6 +64,9 @@ export default{
 		return{
 			ratingColors: [ 'light-green-3', 'light-green-6', 'green', 'green-9', 'green-10' ]
 		}
+	},
+	components:{
+		infopage
 	},
 	methods:{
 		...mapActions('items',['deleteItem']),
@@ -87,6 +95,9 @@ export default{
 		beforeDestroy () {
 			clearTimeout(this.timer)
 		},
+		passInfo(){
+			bus.$emit("show-item")
+		}
     }
 }
 

@@ -60,6 +60,7 @@ export default {
 
 #points-quantity {
   display: block;
+  margin-top:50px;
   margin-left: auto;
   margin-right: auto;
 }
