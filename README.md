@@ -2,22 +2,11 @@
 
 GreenBean is our first attempt at mobile barcode scanning application that will aims to provide users with information about how sustainable and eco-friendly their daily purchases are - everything from varying food items to household cleaning agents and personal care products. Users can also send requests to our database if certain items have yet to be added, or if they feel certain information should be changed. Verified users who are active in the field of sustainability can add information directly to the database!
 
-![HomepageMock]
-(/mockups/1.png)
+<img src="https://github.com/Arnavkar/Project_Headstart/blob/master/mockups/1.png" width="535" height="700">
 
 GreenBean was built using Quasar and VueJS with the temporary implementation of the google sheets API as our backend (New-coder friendly!). We deployed using netlify for our showcase. The scanning technology used was built from Scandit - we successfully applied and were granted their community SDK for startups. Here are some mockups:
 
-![pg1]
-(/mockups/2.png)
-
-![pg2]
-(/mockups/3.png)
-
-![pg3]
-(/mockups/4.png)
-
-![pg4]
-(/mockups/5.png)
+<img src="https://github.com/Arnavkar/Project_Headstart/blob/master/mockups/2.png" width="535" height="700"><img src="https://github.com/Arnavkar/Project_Headstart/blob/master/mockups/3.png" width="535" height="700"><img src="https://github.com/Arnavkar/Project_Headstart/blob/master/mockups/4.png" width="535" height="700"><img src="https://github.com/Arnavkar/Project_Headstart/blob/master/mockups/5.png" width="535" height="700">
 
 This project was done over 3 months with Praxium, Singapore. We are now continuing of our own accord!
 
