@@ -47,7 +47,7 @@
     methods:{
       searchAndRetrieve(string){
         if(database[string]==undefined){
-          console.log( "item not found")
+          console.log( "item  with code" + string + "was not found")
           var stockItem = {
             barcode: string,
             image: "https://us.123rf.com/450wm/pavelstasevich/pavelstasevich1811/pavelstasevich181101029/112815932-stock-vector-no-image-available-icon-flat-vector-illustration.jpg?ver=6",

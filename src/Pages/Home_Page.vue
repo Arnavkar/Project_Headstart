@@ -1,8 +1,8 @@
 <template>
     <div>
-    <Homepage
-    />
     <q-page>
+        <Homepage
+    />
         <div class="q-pa-md">
             <q-dialog v-model="carousel">
                 <q-carousel

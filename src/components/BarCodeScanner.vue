@@ -1,8 +1,6 @@
 <template>
 	<div class = "container">
-		<!-- <title>Scandit Example Page</title> -->
 		<div id="scandit-barcode-picker" class="scanner"></div>
-		<!-- <div id="scandit-barcode-result" class="result-text"></div> -->
 	</div>
 </template>
 
@@ -35,7 +33,7 @@
 			//let proxyurl = "https://cors-anywhere.herokuapp.com/";
 			//const api_key = "YOUR API KEY"; 
 
-			const scanditKey="AX7OUjpwJQErLLulGAinuoQtpKRwQ7COcxp801gTgb7pCchbeAUP0od/nW6af14TEkd6nVho6DIfT4esezf5PdFMMEgIaX8yvH+1pzBiekkrNxvTIxSTbvs46/leHt2pUsNuRNQ5G9aDNtLdR/dOlk56GM8b84Mx2PBpCuArj4+mmkh/H3BuObEjS+B1hyGnmbglA3JP+mf66tfN7e34OSATea+967mxFqRQblBB2NGIXEuCu2cl5vCw7Iu7BsmT+om7bBIjHX29CYJfy/afu5cK3+maogc4S26pZeyk1x6ng0zK4D6Timze4MnsY2kBnIQGn3V7AEIcvoVwyXaqqGv8pxpCQnzo+pMo7DUq5lECSNwIk4Er5nxMr194iopi640Di6Bd+EVF5B57S7RNNQ6k9n280Pa4XvbPlNqhuiNg4fvwcIEZ3+7uajPHEYmV1VwiaeuhXCHQeGh41TC/J4WTimENeYrxxgwFGw1ZiWBTJwyDPlMporPt0azEhhsaUmubVCjlJC0gkmWDuBW7c12yZCn34QSb7EfrGMoJjy/ZVefgzN2gboHJ480BB6YGJcOdxCNmSGVDUaGYFf5UcfKgERXtBSdu6bDy8wD9T1uLATAr6wjJ+LgO1ZK5UH+YrsCwZrjw1sOZvgYvBnhR6FAlyjqlkxgNFEQCOl6aIIokOL6tZkp1optZ5VA/BkWplZ5EHNLXLiWOPen+uO5duh9wBFEdy+UdzPDiMsPIEM9hgIvSurksK+ksmjkF8iZOW/3Zh6dDvQXx021cicTdLEwa/8VIHA6AkoefalV9"
+			const scanditKey="AQlfNRrLBdSsIjzCA0LoElk16WDBGZEY7FC+J9J2dBwDLrJiW3YObNlJbPX2KNjvSEGxytRfxEjideYDR0NxIK05wDX5esQlxmFqHc1+iS/sDhzX52vqEl4f+BleR6CSHSENhZYzplWLJGpMhhf2dT+dw3bt46zk6couMXhHQ84bKJZ0PL4B1TF/1R0f7bySZsomLXI3RwyU5XMj1IOG/t2NlkAJDhJbUY7Ebkx+suQl3bGEN0qne6zoRWQsrFswlVrT0tVi9V9r0HL7Whl0pzMms4Nzv7VlPubv0PFOePwFhvLDbSzK8C1zMod5v8U6c+z1lrGRkanxE2WrOmANctOn1Z2/u3XFlAlaSmI+QQ+w9wmkNdKL3uppR3vBbo3aEXiUvw/nt7fG9iDkNMesxInbFA7LAuzYRsDnWv5ZMJItTjpVh8KBPZ6DLJWrjdZWzy025G7uarMChcKFq9Uf/m5aFA6JCNqom2usk3vrcdqNShyjfZCsLa2seTniPPSr50C8+tZw9Hr+VGh3Dkzjgl+/RO+jYzn9tF3vO7RI/4HSy3PclTL6OxBkOCjnrncX/ix6+S8yi67zWeZU6NW/cAokD6nXhwjBOiothbrkROmykxBbasDKHo2VRmuhAJqxG2YNTO6dowi9QCYoJOBfW+zYmvJfRyEGUrYNWN2feIApgi7lE9dSyJ3g30QkbiUfvsOh46Z7Hxy85BTjtDKFAaQLRSL6GdMTvLjacI7xJFa2cDFYTyC9PLFs6sDFwnhyhxwQN5+y1I8TpJGUblNSQY4sS/hownwoB2gzWq1aGwy7KsNHsXHhWWBz3MNyW0c="
 
 			const scanditEngine="https://cdn.jsdelivr.net/npm/scandit-sdk@5.x/build/"
 			ScanditSDK.configure(scanditKey, {
@@ -84,10 +82,11 @@
 
 <style>
 
-/* .scanner {
-	position: absolute;
-	max-width: 1280px;
-	height: 100%;
-} */
+#scandit-barcode-picker{
+	width:100vw;
+	
+}
+
+
 
 </style>
